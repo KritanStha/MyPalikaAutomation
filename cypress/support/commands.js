@@ -1,25 +1,34 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add(
+  "login",
+  (email = "rajiv.sapkota54@gmail.com", password = "User@123") => {
+    cy.visit("/");
+    cy.contains("h2.chakra-heading", /Administrative|प्रशासन शाखा/, {
+      timeout: 15000,
+    })
+      .should("be.visible")
+      .click({ force: true });
+
+    cy.get("form", { timeout: 15000 }).should("be.visible");
+    cy.get('input[name="email"]')
+      .clear()
+      .type("global@gmail.com", { delay: 5 });
+    cy.get('input[name="password"]')
+      .clear()
+      .type("Global@123", { log: false, delay: 5 });
+    cy.get('button[type="submit"]').click();
+
+    cy.contains(/dashboard|admin|ड्यासबोर्ड|प्रशासन/i, {
+      timeout: 15000,
+    }).should("exist");
+    cy.get('span.chakra-avatar img[alt="Ryan Florence"]').click();
+    cy.contains("button", "Sifarish").then(($btn) => {
+      if ($btn.attr("aria-expanded") !== "true") {
+        cy.wrap($btn).click();
+      }
+    });
+
+    cy.get('a[href="/admin-dashboard/application-apply"]', { timeout: 10000 })
+      .should("be.visible")
+      .click();
+  }
+);
