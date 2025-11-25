@@ -1,6 +1,6 @@
 Cypress.Commands.add(
   "login",
-  (email = "rajiv.sapkota54@gmail.com", password = "User@123") => {
+  (email = "global@gmail.com", password = "Global@123") => {
     cy.visit("/");
     cy.contains("h2.chakra-heading", /Administrative|प्रशासन शाखा/, {
       timeout: 15000,
@@ -11,10 +11,10 @@ Cypress.Commands.add(
     cy.get("form", { timeout: 15000 }).should("be.visible");
     cy.get('input[name="email"]')
       .clear()
-      .type("global@gmail.com", { delay: 5 });
+      .type(email, { delay: 5 });
     cy.get('input[name="password"]')
       .clear()
-      .type("Global@123", { log: false, delay: 5 });
+      .type(password, { log: false, delay: 5 });
     cy.get('button[type="submit"]').click();
 
     cy.contains(/dashboard|admin|ड्यासबोर्ड|प्रशासन/i, {
