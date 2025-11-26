@@ -32,3 +32,7 @@ Cypress.Commands.add(
       .click();
   }
 );
+
+
+import 'cypress-file-upload';
+import 'cypress-downloadfile/lib/downloadFileCommand';
