@@ -4,15 +4,7 @@
 // This file contains ONLY unique, non-shared, special-case values
 // for specific form features for ALL forms provided (comments: each form)
 
-import {
-  sharedApplicantData,
-  sharedAddressData,
-  sharedFamilyData,
-  sharedBusinessData,
-  sharedSchoolData,
-  sharedDocuments
-} from "./SData";
-
+import { sharedAddressData , sharedApplicantData, sharedFamilyData, sharedBusinessData, sharedSchoolData, sharedDocuments } from "./SData_Version3";
 // ---- BIRTH DATE VERIFICATION ----
 export const birthDateVerificationUnique = {
   ...sharedApplicantData,
@@ -65,7 +57,10 @@ export const businessNotBeingOperatedUnique = {
   registeredDate: "२०७६-०६-२०",
   companyRegCertificatePath: sharedDocuments.companyRegCertificatePath,
   renewalCertificatePath: sharedDocuments.renewalCertificatePath,
-  fieldVerificationReportPath: sharedDocuments.fieldVerificationReportPath
+  fieldVerificationReportPath: sharedDocuments.fieldVerificationReportPath,
+  bOfficeName:"काठमाडौँ महानगरपालिका करदाताको कार्यालय",
+  bOfficeAddress: "रुपेश मार्ग"
+  
 };
 
 // ---- FUNDAMENTAL SCHOOL OPEN RECOMMENDATION ----

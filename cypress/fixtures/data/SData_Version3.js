@@ -10,16 +10,16 @@ export const sharedApplicantData = {
   applicantLastName: "कोइराला",
   applicantCitizenshipNumber: "12345678",
   applicantIssueDate: "२०७७-०१-१५", // Nepali date
-  applicantIssueDistrict: "काठमान्डौ", // district for select
+  applicantIssueDistrict: "kathmandu", // district for select
   nationalIdNumber: "1234567890"
 };
 
 export const sharedAddressData = {
   // ---- Permanent Address ----
   province: "बागमती",
-  district: "काठमान्डौ",
+  district: "28",
   localLevel: "काठमाडौँ महानगरपालिका",
-  wardNumber: "१०",
+  wardNumber: "2902",
   tole: "जयबागेश्वरी"
 };
 

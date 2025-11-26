@@ -32,3 +32,5 @@ Cypress.Commands.add(
       .click();
   }
 );
+
+import 'cypress-file-upload';
