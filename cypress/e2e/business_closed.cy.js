@@ -19,6 +19,8 @@ describe('Business Closed ', ()=>{
 
         cy.get(businessClosedRecommendationLocators.wardSelect).select('4');
 
+        // Personal Details
+
         cy.get(businessClosedRecommendationLocators.applicantFirstNameInput)
             .clear()
             .type(sharedApplicantData.applicantFirstName);

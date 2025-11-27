@@ -19,44 +19,45 @@ const relationCertificateDeceasedLocators = {
   allRadio: 'label:has(span:contains("All")) input[type="radio"]',
 
   // ======= Search Panel =======
-  searchUserInput: 'input[placeholder="Search User"]',
+  searchUserInput: '[placeholder="Search User"]',
 
   // ======= Application Ward Section =======
-  wardSelect: 'select[id="field-:rqm:"]',
+  wardSelect: '#field-\\:r35\\:',
 
   // ======= Applicant Personal Details Section =======
-  applicantFirstNameInput: 'input[id="field-:rqn:"]',
-  applicantMiddleNameInput: 'input[id="field-:rqo:"]',
-  applicantLastNameInput: 'input[id="field-:rqp:"]',
-  applicantCitizenshipNumberInput: 'input[id="field-:rqq:"]',
-  applicantIssueDatePicker: 'input[id="field-:rqr:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
-  applicantIssueDistrictSelect: 'select[id="field-:rqs:"]',
-  nationalIdNumberInput: 'input[id="field-:rqt:"]',
+  applicantFirstNameInput: '#field-\\:r36\\:',
+  applicantMiddleNameInput: '#field-\\:r37\\:',
+  applicantLastNameInput: '#field-\\:r38\\:',
+  applicantCitizenshipNumberInput: '#field-\\:r39\\:',
+  applicantIssueDatePicker: 'form-control nepali-date-picker',
+  applicantIssueDistrictSelect: '#field-\\:r3b\\:',
+  nationalIdNumberInput: '#field-\\:r3c\\:',
 
   // ======= Permanent Address Section =======
-  provinceSelect: 'select[id="field-:rqu:"]',
-  districtSelect: 'select[id="field-:rqv:"]',
-  localLevelSelect: 'select[id="field-:rr0:"]',
-  wardNumberSelect: 'select[id="field-:rr1:"]',
-  toleInput: 'input[id="field-:rr2:"]',
+  provinceSelect: '#field-\\:r3d\\:',
+  districtSelect: '#field-\\:r3e\\:',
+  localLevelSelect: '#field-\\:r3f\\:',
+  wardNumberSelect: '#field-\\:r3g\\:',
+  toleInput: '#field-\\:r3h\\:',
 
   // ======= Purpose of Verification Section =======
-  purposeInput: 'input[id="field-:rr3:"]',
+  purposeInput: '#field-\\:r3i\\:',
 
   // ======= Document Uploads Section =======
-  declarationFamilyInput: 'input[type="file"][name="Declaration_from_family_members"]',
-  clearancePoliceInput: 'input[type="file"][name="Clearance_from_the_Police_if_Any"]',
+  declarationFamilyInput: '#field-\\:r3j\\:',
+  clearancePoliceInput: '#field-\\:r3k\\:',
 
   // ======= Table Details Section (dynamic, for each row) =======
   // Naata sambandh, etc.
-  relationRowPersonNameInput: 'input[id="field-:rr7:"]',
-  relationRowNataSelect: 'select[name="नाता"]',
-  relationRowIsDeceasedCheckbox: 'input[name="मृतक हो?"]',
-  addMoreButton: 'button.chakra-button:contains("Add More...")',
+  relationRowPersonNameInput: '#field-\\:r3m\\:',
+  relationRowNataSelect: '[name="नाता"]',
+  relationRowIsDeceasedCheckbox: '[name="मृतक हो?"]',
+  addMoreButton: '.chakra-button.css-l1hakx',
 
   // ======= Action Buttons =======
   cancelButton: 'button.chakra-button:contains("Cancel")',
-  applyButton: 'button.chakra-button[type="submit"]:contains("Apply")'
+  applyButton: '[type="submit"]',
+  forSubmission: '[type="button"]'
 };
 
 export default relationCertificateDeceasedLocators;
