@@ -4,7 +4,7 @@ const propertyValuationNepaliLocators = {
   // ======= Headings & Actions =======
   heading: 'h2.chakra-heading:contains("Apply Sifarish")',
   backButton: 'button.chakra-button:contains("← Back")',
-  propertyValuationText: 'p.chakra-text:contains("Property valuation(Nepali)")',
+  propertyValuationText: '.chakra-heading.css-woev60',
 
   // ======= Radio Group: Main User Type =======
   searchUserRadio: 'label:has(span:contains("Search User")) input[type="radio"]',
@@ -22,51 +22,53 @@ const propertyValuationNepaliLocators = {
   searchUserInput: 'input[placeholder="Search User"]',
 
   // ======= Application Ward Section =======
-  wardSelect: 'select[id="field-:rkg:"]',
+  wardSelect: '#field-\\:r38\\:',
 
   // ======= Applicant Details Section =======
-  applicationDatePicker: 'input[id="field-:rkh:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
+  applicationDatePicker: 'input.nepali-date-picker[value="२०८२-०८-१२"]',
 
   // ======= Applicant Personal Details Section =======
-  applicantFirstNameInput: 'input[id="field-:rki:"]',
-  applicantMiddleNameInput: 'input[id="field-:rkj:"]',
-  applicantLastNameInput: 'input[id="field-:rkk:"]',
-  applicantGenderSelect: 'select[id="field-:rkl:"]',
-  applicantCitizenshipNumberInput: 'input[id="field-:rkm:"]',
-  applicantIssueDatePicker: 'input[id="field-:rkn:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
-  applicantIssueDistrictSelect: 'select[id="field-:rko:"]',
-  nationalIdNumberInput: 'input[id="field-:rkp:"]',
+  applicantFirstNameInput: '#field-\\:r3a\\:',
+  applicantMiddleNameInput: '#field-\\:r3b\\:',
+  applicantLastNameInput: '#field-\\:r3c\\:',
+  applicantGenderSelect: '#field-\\:r3d\\:',
+  applicantCitizenshipNumberInput: '#field-\\:r3e\\:',
+  applicantIssueDatePicker: 'input.nepali-date-picker[value="२०८२-०८-१२"]',
+  applicantIssueDistrictSelect: '#field-\\:r3g\\:',
+  nationalIdNumberInput: '#field-\\:r3h\\:',
 
   // ======= Permanent Address Section =======
-  provinceSelect: 'select[id="field-:rkq:"]',
-  districtSelect: 'select[id="field-:rkr:"]',
-  localLevelSelect: 'select[id="field-:rks:"]',
-  wardNumberSelect: 'select[id="field-:rkt:"]',
-  toleInput: 'input[id="field-:rku:"]',
+  provinceSelect: '#field-\\:r3i\\:',
+  districtSelect: '#field-\\:r3j\\:',
+  localLevelSelect: '#field-\\:r3k\\:',
+  wardNumberSelect: '#field-\\:r3l\\:',
+  toleInput: '#field-\\:r3m\\:',
 
   // ======= Valuation Details Section =======
-  totalValuationInNRPInput: 'input[id="field-:rkv:"]',
-  exchangeRateInput: 'input[id="field-:rl0:"]',
-  totalValuationInUSDInput: 'input[id="field-:rl1:"]',
+  totalValuationInNRPInput: '#field-\\:r3n\\:',
+  exchangeRateInput: '#field-\\:r3o\\:',
+  totalValuationInUSDInput: '#field-\\:r3p\\:',
 
   // ======= Document Uploads Section =======
-  landOwnershipCertificateInput: 'input[type="file"][name="Land_Ownership_Certificate"]',
+  landOwnershipCertificateInput: '#field-\\:r3q\\:',
 
   // ======= Table Details Section (dynamic, for each row) =======
   // Jagga Dhani ko naam, etc.
-  valuationRowOwnerNameInput: 'input[id="field-:rl4:"]',
-  valuationRowPropertyTypeInput: 'input[id="field-:rl5:"]',
-  valuationRowMunicipalityInput: 'input[id="field-:rl6:"]',
-  valuationRowWardNoInput: 'input[id="field-:rl7:"]',
-  valuationRowPlotNoInput: 'input[id="field-:rl8:"]',
-  valuationRowAreaInput: 'input[id="field-:rl9:"]',
-  valuationRowRateInput: 'input[id="field-:rla:"]',
-  valuationRowTotalInput: 'input[id="field-:rlb:"]',
+  valuationRowOwnerNameInput: '#field-\\:r3s\\:',
+  valuationRowPropertyTypeInput: '#field-\\:r3t\\:',
+  valuationRowMunicipalityInput: '#field-\\:r3u\\:',
+  valuationRowWardNoInput: '#field-\\:r3v\\:',
+  valuationRowPlotNoInput: '#field-\\:r40\\:',
+  valuationRowAreaInput: '#field-\\:r41\\:',
+  valuationRowRateInput: '#field-\\:r42\\:',
+  valuationRowTotalInput: '#field-\\:r43\\:',
   addMoreButton: 'button.chakra-button:contains("Add More...")',
 
   // ======= Action Buttons =======
   cancelButton: 'button.chakra-button:contains("Cancel")',
-  applyButton: 'button.chakra-button[type="submit"]:contains("Apply")'
+  applyButton: '[type="submit"]',
+
+  forSubmission: '.chakra-button.css-arfz4w'
 };
 
 export default propertyValuationNepaliLocators;

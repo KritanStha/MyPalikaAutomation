@@ -25,7 +25,7 @@ export const propertyValuationUnique = {
   ...sharedApplicantData,
   ...sharedAddressData,
   totalValuationInNRP: "५००००००", // Five million
-  exchangeRate: "१३५",
+  exchangeRate: "100",
   totalValuationInUSD: "३७०३७",
   valuationRows: [
     {
