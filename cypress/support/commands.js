@@ -34,3 +34,4 @@ Cypress.Commands.add(
 );
 
 import 'cypress-file-upload';
+

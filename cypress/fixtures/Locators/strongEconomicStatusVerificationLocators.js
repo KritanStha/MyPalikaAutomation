@@ -59,5 +59,5 @@ const strongEconomicStatusVerificationLocators = {
 
   forSubmit:"[type='button']"
 };
-
+//sdfghjk
 export default strongEconomicStatusVerificationLocators;
