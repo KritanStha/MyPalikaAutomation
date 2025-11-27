@@ -19,42 +19,45 @@ const strongEconomicStatusVerificationLocators = {
   allRadio: 'label:has(span:contains("All")) input[type="radio"]',
 
   // ======= Search Panel =======
-  searchUserInput: 'input[placeholder="Search User"]',
+  searchUserInput: '[placeholder="Search User"]',
 
   // ======= Application Ward Section =======
-  wardSelect: 'select[id="field-:rvk:"]',
+  wardSelect: '#field-\\:r3a\\:',
 
   // ======= Applicant Personal Details Section =======
-  applicantFirstNameInput: 'input[id="field-:rvl:"]',
-  applicantMiddleNameInput: 'input[id="field-:rvm:"]',
-  applicantLastNameInput: 'input[id="field-:rvn:"]',
-  applicantGenderSelect: 'select[id="field-:rvo:"]',
-  applicantDateOfBirthPicker: 'input[id="field-:rvp:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
-  applicantCitizenshipNumberInput: 'input[id="field-:rvq:"]',
-  applicantIssueDatePicker: 'input[id="field-:rvr:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
-  applicantIssueDistrictSelect: 'select[id="field-:rvs:"]',
-  nationalIdNumberInput: 'input[id="field-:rvt:"]',
-  applicantContactNumberInput: 'input[id="field-:rvu:"]',
+  applicantFirstNameInput: '#field-\\:r3b\\:',
+  applicantMiddleNameInput: '#field-\\:r3c\\:',
+  applicantLastNameInput: '#field-\\:r3d\\:',
+  applicantGenderSelect: '#field-\\:r3e\\:',
+  applicantDateOfBirthPicker: '.form-control.nepali-date-picker',
+  applicantCitizenshipNumberInput: '#field-\\:r3g\\:',
+  applicantIssueDatePicker: '.form-control.nepali-date-picker',
+  applicantIssueDistrictSelect: '#field-\\:r3i\\:',
+  nationalIdNumberInput: '#field-\\:r3j\\:',
+  applicantContactNumberInput: '#field-\\:r3k\\:',
 
   // ======= Permanent Address Section =======
-  provinceSelect: 'select[id="field-:rvv:"]',
-  districtSelect: 'select[id="field-:r100:"]',
-  localLevelSelect: 'select[id="field-:r101:"]',
-  wardNumberSelect: 'select[id="field-:r102:"]',
-  toleInput: 'input[id="field-:r103:"]',
+  provinceSelect: '#field-\\:r3l\\:',
+  districtSelect: '#field-\\:r3m\\:',
+  localLevelSelect: '#field-\\:r3n\\:',
+  wardNumberSelect: '#field-\\:r3o\\:',
+  toleInput: '#field-\\:r3p\\:',
 
   // ======= Office Details Section =======
-  officeNameInput: 'input[id="field-:r104:"]',
-  officeAddressInput: 'input[id="field-:r105:"]',
+  officeNameInput: '#field-\\:r3q\\:',
+  officeAddressInput: '#field-\\:r3r\\:',
 
   // ======= Document Uploads Section =======
-  propertyTaxReceiptUpload: 'input[type="file"][name="Property_Tax_Payment_Receipt"]',
-  landOwnershipCertificateUpload: 'input[type="file"][name="Land_Ownership_Certificate"]',
-  recommendationFromWardUpload: 'input[type="file"][name="Recommendation_from_Ward"]',
+  propertyTaxReceiptUpload: '#field-\\:r3s\\:',
+  landOwnershipCertificateUpload: '#field-\\:r3t\\:',
+  recommendationFromWardUpload: '#field-\\:r3u\\:',
 
   // ======= Action Buttons =======
-  cancelButton: 'button.chakra-button:contains("Cancel")',
-  applyButton: 'button.chakra-button[type="submit"]:contains("Apply")'
+  cancelButton: '[type="button"]',
+  applyButton: '[type="submit"]',
+
+
+  forSubmit:"[type='button']"
 };
 
 export default strongEconomicStatusVerificationLocators;
