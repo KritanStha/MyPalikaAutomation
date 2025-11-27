@@ -1,58 +1,30 @@
-// ===================== Fundamental School Open Recommendation Form Locators =====================
+const FSOR = {
+  // Navigation
+  menuItem: "Fundamental School Open Recommendation",
 
-const fundamentalSchoolOpenRecommendationLocators = {
-  // ======= Headings & Actions =======
-  heading: 'h2.chakra-heading:contains("Apply Sifarish")',
-  backButton: 'button.chakra-button:contains("← Back")',
-  schoolOpenText: 'p.chakra-text:contains("Fundamental School Open Recommendation")',
+  // Ward Selection
+  wardSelect: "select",
 
-  // ======= Radio Group: Main User Type =======
-  searchUserRadio: 'label:has(span:contains("Search User")) input[type="radio"]',
-  createUserRadio: 'label:has(span:contains("Create User")) input[type="radio"]',
+  // Applicant Personal Details
+  applicantSection: "Applicant Personal Details",
+  firstName: 'input[placeholder="Enter first name"]',
+  middleName: 'input[placeholder="Enter middle name"]',
+  lastName: 'input[placeholder="Enter last name"]',
+  citizenshipNumber: 'input[placeholder="Enter citizenship number"]',
+  nationalId: 'input[placeholder="Enter national ID number"]',
 
-  // ======= Radio Group: User Status Filter =======
-  kycVerifiedRadio: 'label:has(span:contains("KYC Verified")) input[type="radio"]',
-  kycUnverifiedRadio: 'label:has(span:contains("KYC Unverified")) input[type="radio"]',
-  kycRejectedRadio: 'label:has(span:contains("KYC Rejected")) input[type="radio"]',
-  otpVerifiedRadio: 'label:has(span:contains("OTP Verified")) input[type="radio"]',
-  otpUnverifiedRadio: 'label:has(span:contains("OTP Unverified")) input[type="radio"]',
-  allRadio: 'label:has(span:contains("All")) input[type="radio"]',
+  // Permanent Address
+  permanentAddressSection: "Permanent Address",
+  tole: 'input[placeholder="Enter tole name"]',
 
-  // ======= Search Panel =======
-  searchUserInput: 'input[placeholder="Search User"]',
+  // Decision Details
+  decisionDetailsSection: "Decision Details",
 
-  // ======= Application Ward Section =======
-  wardSelect: 'select[id="field-:rsc:"]',
+  // Recommending Office
+  recommendingOfficeSection: "Details of the recommending office",
 
-  // ======= Applicant Personal Details Section =======
-  applicantFirstNameInput: 'input[id="field-:rsd:"]',
-  applicantMiddleNameInput: 'input[id="field-:rse:"]',
-  applicantLastNameInput: 'input[id="field-:rsf:"]',
-  applicantCitizenshipNumberInput: 'input[id="field-:rsg:"]',
-  applicantIssueDatePicker: 'input[id="field-:rsh:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
-  applicantIssueDistrictSelect: 'select[id="field-:rsi:"]',
-  nationalIdNumberInput: 'input[id="field-:rsj:"]',
-
-  // ======= Permanent Address Section =======
-  provinceSelect: 'select[id="field-:rsk:"]',
-  districtSelect: 'select[id="field-:rsl:"]',
-  localLevelSelect: 'select[id="field-:rsm:"]',
-  wardNumberSelect: 'select[id="field-:rsn:"]',
-  toleInput: 'input[id="field-:rso:"]',
-
-  // ======= Recommending Office Details Section =======
-  officeNameInput: 'input[id="field-:rsp:"]',
-  officeAddressInput: 'input[id="field-:rsq:"]',
-
-  // ======= Decision Details Section =======
-  dateOfDecisionPicker: 'input[id="field-:rsr:"], .nepali-date-picker input[readonly][class*="nepali-date-picker"]',
-
-  // ======= Document Uploads Section =======
-  meetingMinutesUpload: 'input[type="file"][name="Meeting_minutes_of_the_meeting_held_as_per_the_decision_of_the_local_dignitaries"]',
-
-  // ======= Action Buttons =======
-  cancelButton: 'button.chakra-button:contains("Cancel")',
-  applyButton: 'button.chakra-button[type="submit"]:contains("Apply")'
+  // Documents
+  meetingMinutes: 'input[name="Meeting_Minutes"]'
 };
 
-export default fundamentalSchoolOpenRecommendationLocators;
+export default FSOR;
