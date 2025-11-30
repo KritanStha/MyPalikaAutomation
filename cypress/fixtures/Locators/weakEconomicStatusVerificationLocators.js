@@ -20,11 +20,13 @@ const WESV = {
 
   // Office Details
   officeDetailsSection: "Office Details",
+  officeName: 'input[placeholder="Write name of the office"]',
+  officeAddress: 'input[placeholder="Write address of the office"]',
 
   // Documents
   propertyTaxReceipt: 'input[name="Property_Tax_Payment_Receipt"]',
-  landOwnershipCert: 'input[name="Land_Ownership_Certificate"]',
-  wardRecommendation: 'input[name="Recommendation_from_Ward_if_any"]'
+  landOwnershipCert: 'input[name="Land_Ownership_Certificate"',
+  wardRecommendation: 'input[name="Recommendation_from_Ward"]'
 };
 
 export default WESV;

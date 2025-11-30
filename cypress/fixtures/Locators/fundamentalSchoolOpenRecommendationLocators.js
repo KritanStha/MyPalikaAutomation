@@ -18,13 +18,13 @@ const FSOR = {
   tole: 'input[placeholder="Enter tole name"]',
 
   // Decision Details
-  decisionDetailsSection: "Decision Details",
+  decisionDetailsSection: "Decision details",
 
   // Recommending Office
   recommendingOfficeSection: "Details of the recommending office",
 
   // Documents
-  meetingMinutes: 'input[name="Meeting_Minutes"]'
+  meetingMinutes: 'input[name="Meeting_minutes_of_the_meeting_held_as_per_the_decision_of_the_local_dignitaries"]'
 };
 
 export default FSOR;

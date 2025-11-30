@@ -55,7 +55,7 @@ describe("Weak Economic Status Verification", () => {
 
         // Upload Documents
         cy.get(WESV.propertyTaxReceipt).selectFile("cypress/fixtures/files/letter.pdf", { force: true });
-        cy.get(WESV.landOwnershipCertificate).selectFile("cypress/fixtures/files/proof.jpg", { force: true });
+        cy.get(WESV.landOwnershipCert).selectFile("cypress/fixtures/files/proof.jpg", { force: true });
         // Optional: cy.get(WESV.wardRecommendation).selectFile("cypress/fixtures/files/letter.pdf", { force: true });
 
         // Submit form with confirmation

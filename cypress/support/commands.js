@@ -1,6 +1,6 @@
 Cypress.Commands.add(
   "login",
-  (email = "global@gmail.com", password = "Global@123") => {
+  (email = Cypress.env("USER_EMAIL"), password = Cypress.env("PASSWORD")) => {
     cy.visit("/");
     cy.contains("h2.chakra-heading", /Administrative|प्रशासन शाखा/, {
       timeout: 15000,
@@ -56,16 +56,13 @@ Cypress.Commands.add("navigateToForm", (formName) => {
     .should("be.visible")
     .click();
   cy.contains("Apply Sifarish").should("be.visible");
-  cy.wait(2000);
 });
 
 // Search and select a user from the dropdown
 Cypress.Commands.add("searchAndSelectUser", (userName) => {
   cy.get('input[type="radio"][value="search"]').check({ force: true });
   cy.get('input[placeholder="Search User"]').click();
-  cy.wait(1000);
   cy.contains("button[role='menuitem']", userName).click({ force: true });
-  cy.wait(1000);
 });
 
 // Select a date from Nepali date picker
@@ -73,7 +70,6 @@ Cypress.Commands.add("selectNepaliDate", (pickerIndex, dayIndex) => {
   cy.get("input.nepali-date-picker").eq(pickerIndex).click();
   cy.get("tbody").should("be.visible");
   cy.get("td.month-day.current").eq(dayIndex).click();
-  cy.wait(500);
 });
 
 // Fill family member details (grandfather, father, etc.)
@@ -97,7 +93,6 @@ Cypress.Commands.add("fillFamilyMember", (memberIndex, memberData) => {
 // Submit form with confirmation modal
 Cypress.Commands.add("submitFormWithConfirmation", () => {
   cy.get('button[type="submit"]').contains("Apply").click();
-  cy.wait(500);
   cy.contains("button", "Submit").click();
 });
 
