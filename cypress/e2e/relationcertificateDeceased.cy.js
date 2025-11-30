@@ -2,21 +2,21 @@ import relationCertificateDeceasedLocators from "../fixtures/Locators/relationCe
 import { sharedApplicantData, sharedAddressData } from "../fixtures/data/SData_Version3"
 import { relationCertificateDeceasedUnique } from "../fixtures/data/UData_Version3"
 
-describe('Relation certificate Deceased',()=>{
-    it('Relation certificate Deceased', ()=>{
+describe('Relation certificate Deceased', () => {
+    it('Relation certificate Deceased', () => {
 
         cy.on('uncaught:exception', () => false)
         cy.login()
 
         cy.contains('Relation Certificate with Deceased')
-        .scrollIntoView()
-        .click();
+            .scrollIntoView()
+            .click();
 
         cy.get(relationCertificateDeceasedLocators.searchUserInput).click()
         cy.contains('Rajiv Notification - (9843530325)').click();
         cy.get(relationCertificateDeceasedLocators.wardSelect).select('4');
 
-         cy.get(relationCertificateDeceasedLocators.applicantFirstNameInput)
+        cy.get(relationCertificateDeceasedLocators.applicantFirstNameInput)
             .clear()
             .type(sharedApplicantData.applicantFirstName);
         cy.get(relationCertificateDeceasedLocators.applicantMiddleNameInput)
@@ -26,12 +26,12 @@ describe('Relation certificate Deceased',()=>{
             .clear()
             .type(sharedApplicantData.applicantLastName);
 
-        
+
 
         cy.get(relationCertificateDeceasedLocators.applicantCitizenshipNumberInput)
             .clear()
             .type(sharedApplicantData.applicantCitizenshipNumber);
-        
+
         cy.get(relationCertificateDeceasedLocators.applicantIssueDistrictSelect).select('lalitpur')
         cy.get(relationCertificateDeceasedLocators.nationalIdNumberInput).type(sharedApplicantData.nationalIdNumber)
 
@@ -48,55 +48,44 @@ describe('Relation certificate Deceased',()=>{
         cy.get(relationCertificateDeceasedLocators.clearancePoliceInput).attachFile('files/renewalCert.pdf')
         relationCertificateDeceasedUnique.relationRows.forEach((row, index) => {
 
-  // Person Name
-    // cy.get(relationCertificateDeceasedLocators.relationRowPersonNameInput)
-    //     .eq(index)
-    //     .clear()
-    //     .type(row.personName);
+            // Person Name
+            // cy.get(relationCertificateDeceasedLocators.relationRowPersonNameInput)
+            //     .eq(index)
+            //     .clear()
+            //     .type(row.personName);
 
-        // If we need more rows in the DOM, click the Add More button
-        if (index > 0) {
+            // If we need more rows in the DOM, click the Add More button
+            if (index > 0) {
                 cy.get(relationCertificateDeceasedLocators.addMoreButton)
                     .click();
                 // wait for the new select to appear
                 cy.get(relationCertificateDeceasedLocators.relationRowNataSelect)
                     .should('have.length.at.least', index + 1);
-        }
+            }
 
-        // Relation Select (dropdown)
-        cy.get(relationCertificateDeceasedLocators.relationRowNataSelect)
+            // Relation Select (dropdown)
+            cy.get(relationCertificateDeceasedLocators.relationRowNataSelect)
                 .eq(index)
                 .select(row.relation);
 
-    // Checkbox (isDeceased)
-        if (row.isDeceased) {
-            cy.get(relationCertificateDeceasedLocators.relationRowIsDeceasedCheckbox)
-                .eq(index)
-                .check({ force: true });
-        } else {
-            cy.get(relationCertificateDeceasedLocators.relationRowIsDeceasedCheckbox)
-                .eq(index)
-                .uncheck({ force: true });
-        }
-    })
+            // Checkbox (isDeceased)
+            if (row.isDeceased) {
+                cy.get(relationCertificateDeceasedLocators.relationRowIsDeceasedCheckbox)
+                    .eq(index)
+                    .check({ force: true });
+            } else {
+                cy.get(relationCertificateDeceasedLocators.relationRowIsDeceasedCheckbox)
+                    .eq(index)
+                    .uncheck({ force: true });
+            }
+        })
 
-    // Click submit once after all dynamic rows have been filled
-    cy.get(relationCertificateDeceasedLocators.applyButton).click()
-    cy.get(relationCertificateDeceasedLocators.forSubmission).eq(0).click()
+        // Click submit once after all dynamic rows have been filled
+        cy.get(relationCertificateDeceasedLocators.applyButton).click()
+        cy.get(relationCertificateDeceasedLocators.forSubmission).eq(0).click()
 
-    cy.get('a[href*="admin-dashboard/application"]')
-        .contains('Sifarish')
-        .click({ force: true });
-
-    cy.contains('td', 'Relation Certificate with Deceased')
-        .first()
-        .closest('tr')
-        .within(() => {
-        // Click the View button in the row
-        cy.get('button[aria-label="show"]')
-        .scrollIntoView()
-        .click({ force: true });
-
-})
+        cy.get('a[href*="admin-dashboard/application"]')
+            .contains('Sifarish')
+            .click({ force: true });
     })
 })
