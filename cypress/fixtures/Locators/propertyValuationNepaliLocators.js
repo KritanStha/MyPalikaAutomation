@@ -25,7 +25,7 @@ const propertyValuationNepaliLocators = {
   wardSelect: '#field-\\:r38\\:',
 
   // ======= Applicant Details Section =======
-  applicationDatePicker: 'input.nepali-date-picker[value="२०८२-०८-१२"]',
+  applicationDatePicker: '.form-control.nepali-date-picker',
 
   // ======= Applicant Personal Details Section =======
   applicantFirstNameInput: '#field-\\:r3a\\:',
@@ -33,7 +33,7 @@ const propertyValuationNepaliLocators = {
   applicantLastNameInput: '#field-\\:r3c\\:',
   applicantGenderSelect: '#field-\\:r3d\\:',
   applicantCitizenshipNumberInput: '#field-\\:r3e\\:',
-  applicantIssueDatePicker: 'input.nepali-date-picker[value="२०८२-०८-१२"]',
+  applicantIssueDatePicker: '.form-control.nepali-date-picker',
   applicantIssueDistrictSelect: '#field-\\:r3g\\:',
   nationalIdNumberInput: '#field-\\:r3h\\:',
 

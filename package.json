@@ -1,10 +1,14 @@
 {
   "name": "mypalika",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000M\u0000y\u0000P\u0000a\u0000l\u0000i\u0000k\u0000a\u0000A\u0000u\u0000t\u0000o\u0000m\u0000a\u0000t\u0000i\u0000o\u0000n\u0000\r\u0000 \u0000#\u0000 \u0000M\u0000y\u0000P\u0000a\u0000l\u0000i\u0000k\u0000a\u0000A\u0000u\u0000t\u0000o\u0000m\u0000a\u0000t\u0000i\u0000o\u0000n\u0000\r\u0000 \u0000#\u0000 \u0000M\u0000y\u0000P\u0000a\u0000l\u0000i\u0000k\u0000a\u0000A\u0000u\u0000t\u0000o\u0000m\u0000a\u0000t\u0000i\u0000o\u0000n\u0000\r\u0000 \u0000",
+  "description": "MyPalika Automation Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "merge-reports": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged.json",
+    "generate-report": "marge cypress/reports/merged.json -f report -o cypress/reports/html",
+    "test": "npm run cypress:run && npm run merge-reports && npm run generate-report"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,10 @@
   "homepage": "https://github.com/KritanStha/MyPalikaAutomation#readme",
   "devDependencies": {
     "cypress": "^15.7.0",
-    "cypress-file-upload": "^5.0.8"
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "dotenv": "^17.2.3",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }

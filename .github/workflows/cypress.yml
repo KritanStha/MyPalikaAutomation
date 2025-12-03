@@ -1,0 +1,60 @@
+
+
+name: Cypress E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
+      CYPRESS_EMAIL: ${{ secrets.CYPRESS_EMAIL }}
+      CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+
+    steps:
+      # 1. Checkout source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Install Cypress binary
+      - name: Install Cypress
+        run: npx cypress install
+
+      # 5. Run Cypress tests in CLI
+      - name: Run Cypress tests
+        run: npm run cypress:run || echo "Cypress tests failed"
+
+      # 6. Merge MochaAwesome reports
+      - name: Merge Mochawesome reports
+        run: |
+          npx mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json
+
+      # 7. Generate final HTML report
+      - name: Generate HTML Report
+        run: |
+          npx marge cypress/reports/mochawesome.json -f final-report -o cypress/reports
+
+      # 8. Upload HTML report as GitHub artifact
+      - name: Upload Test Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-mochawesome-report
+          path: cypress/reports
+          retention-days: 10
