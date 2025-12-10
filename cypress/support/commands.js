@@ -31,7 +31,7 @@ Cypress.Commands.add(
 
     cy.get('span.chakra-avatar img[alt="Ryan Florence"]').click();
 
-    cy.contains("button", "Sifarish").then(($btn) => {
+    /*cy.contains("button", "Sifarish").then(($btn) => {
       if ($btn.attr("aria-expanded") !== "true") {
         cy.wrap($btn).click();
       }
@@ -39,9 +39,13 @@ Cypress.Commands.add(
 
     cy.get('a[href="/admin-dashboard/application-apply"]', { timeout: 10000 })
       .should("be.visible")
-      .click();
+      .click();*/
   }
 );
-
+Cypress.Commands.add("selectNepaliDate", (pickerIndex, dayIndex) => {
+  cy.get("input.nepali-date-picker").eq(pickerIndex).click();
+  cy.get("tbody").should("be.visible");
+  cy.get("td.month-day.current").eq(dayIndex).click();
+});
 // For file uploads
 import "cypress-file-upload";

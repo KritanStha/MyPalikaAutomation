@@ -149,3 +149,67 @@ export const weakEconomicStatusUnique = {
   propertyTaxReceiptPath: "fixtures/files/propertyTaxReceiptWeak.pdf",
   recommendationFromWardPath: "fixtures/files/recommendationWardWeak.pdf"
 };
+
+export const shBusiness ={
+  businessManFirstName:"Ram",
+  businessManMiddleName:"Prasad",
+  businessManLastName:"Koirala",
+  applicantFirstName: "राम",
+  applicantMiddleName: "प्रसाद",
+  applicantLastName: "कोइराला",
+  fhFirstName:"Bhim",
+  fhMiddleName:"Bahadur",
+  fhLastName:"Koirala",
+
+  fatherFirstName: "भीम",
+  fatherMiddleName: "बहादुर",
+  fatherLastName: "कोइराला",
+  fatherinlawFirstName:"Durga",
+  fatherinlawMiddleName:"Prasad",
+  fatherinlawLastName:"Koirala",
+  grandfatherFirstName: "दुर्गा",
+  grandfatherMiddleName: "प्रसाद",
+  grandfatherLastName: "कोइराला",
+
+  citizenshipNumber:"1234567856",
+  phoneNumber:"9801234567",
+  email:"ram2@gmail.com",
+  houseNumber:"123",
+  houseWardNumber:"10",
+  houseStreetNumber:"12A",
+
+  businessEnName:"Apple farm",
+  businessNeplaiName:"सयाऊ फार्म ",
+  currentCapital:"50000",
+  fixedCapital:"200000",
+  oldRegistrationNumber:"23456",
+  registrationOfficeName:"xyz office",
+
+  landlordFirstNameEn:"Shyam",
+  landlordMiddleNameEn:"Prasad",
+  landlordLastNameEn:"Shrestha",
+  landlordNepaliFirstName:"श्याम",
+  landlordNepaliMiddleName:"प्रसाद",
+  landlordNepaliLastName:"श्रेष्ठ",
+  signBoardLength:"5",
+  signBoardWidth:"3",
+  signBoardType:"ब्यापारिक",
+  rentToBePaydMonthly:"15000",
+
+  applicantFirstNameEn:"Sudeep",
+  applicantMiddleNameEn:"Prasad",
+  applicantLastNameEn:"Koirala",
+  applicantFirstNameNepali:"सुदीप",
+  applicantMiddleNameNepali:"प्रसाद",
+  applicantLastNameNepali:"कोइराला",
+  applicantCitizenshipNumber:"87654321",
+  applicantCitizenshipIssuedDistrict:"kathmandu",
+  applicantHouseNumber:"456",
+
+  province:"बागमती",
+  district:"काठमान्डौ",
+  localLevel:"काठमाडौँ महानगरपालिका",
+  wardNumber:"१०",
+
+  voucherNumber:"VN123",
+}

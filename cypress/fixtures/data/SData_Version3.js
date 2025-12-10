@@ -64,3 +64,4 @@ export const sharedDocuments = {
   fieldVerificationReportPath: "fixtures/files/fieldVerificationReport.pdf",
   meetingMinutesPath: "fixtures/files/meetingMinutes.pdf"
 };
+
