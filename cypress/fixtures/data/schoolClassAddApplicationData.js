@@ -1,15 +1,21 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameNp = fakerNepali.person.firstName();
+const lastNameNp = fakerNepali.person.lastName();
+
 const schoolClassAddApplicationData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "सरस्वती",
+        firstName: firstNameNp,
         middleName: "",
-        lastName: "शर्मा",
-        citizenshipNumber: "२७-०१-७५-०१२३४",
+        lastName: lastNameNp,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
         issueDistrict: "kathmandu",
-        nationalId: "१२३४५६७८९०"
+        nationalId: fakerNepali.contact.nationalId()
     },
 
     // School Description
@@ -20,7 +26,7 @@ const schoolClassAddApplicationData = {
         district: "28", // काठमाडौँ
         localLevel: "काठमाडौँ महानगरपालिका",
         ward: "1",
-        tole: "ज्ञानेश्वर"
+        tole: fakerNepali.location.village()
     },
 
     // Decision Details

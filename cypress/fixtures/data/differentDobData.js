@@ -1,29 +1,36 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameNp = fakerNepali.person.firstName();
+const lastNameNp = fakerNepali.person.lastName();
+const middleNameNp = fakerNepali.person.middleName();
+
 const differentDobData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
     applicant: {
-        firstName: "सुमन",
-        middleName: "प्रसाद",
-        lastName: "श्रेष्ठ",
-        citizenshipNumber: "२७-०१-७५-०१२३४",
+        firstName: firstNameNp,
+        middleName: middleNameNp,
+        lastName: lastNameNp,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
         issueDistrict: "Kathmandu",
-        nationalId: "१२३४५६७८९०",
+        nationalId: fakerNepali.contact.nationalId(),
         gender: "पुरुष"
     },
     address: {
         province: "बागमती",
         district: "28", // Kathmandu
-        tole: "बानेश्वर"
+        tole: fakerNepali.location.village()
     },
     grandfather: {
-        firstName: "हरि",
+        firstName: fakerNepali.person.firstName('MALE'),
         middleName: "",
-        lastName: "श्रेष्ठ"
+        lastName: lastNameNp
     },
     father: {
-        firstName: "राम",
+        firstName: fakerNepali.person.firstName('MALE'),
         middleName: "",
-        lastName: "श्रेष्ठ"
+        lastName: lastNameNp
     },
     reason: "नागरिकता र जन्म दर्तामा जन्म मिति फरक परेको हुनाले।"
 };

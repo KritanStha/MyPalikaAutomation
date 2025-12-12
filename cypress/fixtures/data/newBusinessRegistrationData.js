@@ -1,15 +1,21 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameNp = fakerNepali.person.firstName();
+const lastNameNp = fakerNepali.person.lastName();
+
 const newBusinessRegistrationData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "सुरेश",
+        firstName: firstNameNp,
         middleName: "",
-        lastName: "गुरुङ",
-        citizenshipNumber: "२७-०१-७५-०१२३४",
+        lastName: lastNameNp,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
         issueDistrict: "kathmandu",
-        nationalId: "१२३४५६७८९०"
+        nationalId: fakerNepali.contact.nationalId()
     },
 
     // Permanent Address
@@ -18,7 +24,7 @@ const newBusinessRegistrationData = {
         district: "28", // काठमाडौँ
         localLevel: 1,
         ward: 1,
-        tole: "ठमेल"
+        tole: fakerNepali.location.village()
     },
 
     // Business Details
@@ -28,7 +34,7 @@ const newBusinessRegistrationData = {
         district: "28", // काठमाडौँ
         localLevel: 1,
         ward: 1,
-        tole: "न्यू रोड"
+        tole: fakerNepali.location.village()
     },
 
     // Recommending Office

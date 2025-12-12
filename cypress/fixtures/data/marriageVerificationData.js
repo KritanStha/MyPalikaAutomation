@@ -1,13 +1,21 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const husbandFirstName = fakerNepali.person.firstName('MALE');
+const husbandLastName = fakerNepali.person.lastName();
+const wifeFirstName = fakerNepali.person.firstName('FEMALE');
+const wifeLastName = fakerNepali.person.lastName();
+
 const marriageVerificationData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Husband's Personal Details
     husband: {
-        firstName: "राजेश",
+        firstName: husbandFirstName,
         middleName: "",
-        lastName: "श्रेष्ठ",
-        citizenshipNumber: "२७-०१-७५-०१२३४"
+        lastName: husbandLastName,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo()
     },
 
     // Husband's Address
@@ -16,34 +24,34 @@ const marriageVerificationData = {
         district: "28", // काठमाडौँ
         localLevel: 1,
         ward: 1,
-        tole: "बानेश्वर"
+        tole: fakerNepali.location.village()
     },
 
     // Husband's Family
     husbandGrandfather: {
-        firstName: "हरि",
+        firstName: fakerNepali.person.firstName('MALE'),
         middleName: "",
-        lastName: "श्रेष्ठ"
+        lastName: husbandLastName
     },
 
     husbandFather: {
-        firstName: "राम",
+        firstName: fakerNepali.person.firstName('MALE'),
         middleName: "",
-        lastName: "श्रेष्ठ"
+        lastName: husbandLastName
     },
 
     husbandMother: {
-        firstName: "सीता",
+        firstName: fakerNepali.person.firstName('FEMALE'),
         middleName: "",
-        lastName: "श्रेष्ठ"
+        lastName: husbandLastName
     },
 
     // Wife's Personal Details
     wife: {
-        firstName: "सुनिता",
+        firstName: wifeFirstName,
         middleName: "",
-        lastName: "पौडेल",
-        citizenshipNumber: "२७-०१-७६-०५६७८"
+        lastName: wifeLastName,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo()
     },
 
     // Wife's Address
@@ -52,26 +60,26 @@ const marriageVerificationData = {
         district: "7", // धनकुटा
         localLevel: 1,
         ward: 1,
-        tole: "धनकुटा बजार"
+        tole: fakerNepali.location.village()
     },
 
     // Wife's Family
     wifeGrandfather: {
-        firstName: "कृष्ण",
+        firstName: fakerNepali.person.firstName('MALE'),
         middleName: "",
-        lastName: "पौडेल"
+        lastName: wifeLastName
     },
 
     wifeFather: {
-        firstName: "शंकर",
+        firstName: fakerNepali.person.firstName('MALE'),
         middleName: "",
-        lastName: "पौडेल"
+        lastName: wifeLastName
     },
 
     wifeMother: {
-        firstName: "गीता",
+        firstName: fakerNepali.person.firstName('FEMALE'),
         middleName: "",
-        lastName: "पौडेल"
+        lastName: wifeLastName
     }
 };
 

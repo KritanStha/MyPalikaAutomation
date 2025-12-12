@@ -1,17 +1,23 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameNp = fakerNepali.person.firstName('महिला');
+const lastNameNp = fakerNepali.person.lastName();
+
 const weakEconomicStatusVerificationData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "सरस्वती",
+        firstName: firstNameNp,
         middleName: "",
-        lastName: "शर्मा",
+        lastName: lastNameNp,
         gender: "महिला", // Female
-        citizenshipNumber: "२७-०१-७५-०१२३४",
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
         issueDistrict: "kathmandu",
-        nationalId: "१२३४५६७८९०",
-        contactNumber: "9841234567"
+        nationalId: fakerNepali.contact.nationalId(),
+        contactNumber: fakerNepali.contact.mobileNo()
     },
 
     // Permanent Address
@@ -20,7 +26,7 @@ const weakEconomicStatusVerificationData = {
         district: "28", // काठमाडौँ
         localLevel: "काठमाडौँ महानगरपालिका",
         ward: "1",
-        tole: "ज्ञानेश्वर"
+        tole: fakerNepali.location.village()
     },
 
     // Office Details

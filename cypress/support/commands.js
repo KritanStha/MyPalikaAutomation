@@ -1,13 +1,7 @@
 Cypress.Commands.add(
   "login",
   (email = Cypress.env("USER_EMAIL"), password = Cypress.env("PASSWORD")) => {
-    cy.visit("/");
-    cy.contains("h2.chakra-heading", /Administrative|प्रशासन शाखा/, {
-      timeout: 15000,
-    })
-      .should("be.visible")
-      .click({ force: true });
-
+    cy.visit("/admin-login");
     cy.get("form", { timeout: 15000 }).should("be.visible");
     cy.get('input[name="email"]')
       .clear()
@@ -32,7 +26,35 @@ Cypress.Commands.add(
       .click();
   }
 );
+Cypress.Commands.add("loginSocialServices",
+  (email = Cypress.env("USER_EMAIL"), password = Cypress.env("PASSWORD")) => {
+    cy.visit("/admin-login");
+    cy.get('input[name="email"]')
+      .clear()
+      .type(email, { delay: 5 });
+    cy.get('input[name="password"]')
+      .clear()
+      .type(password, { log: false, delay: 5 });
+    cy.get('button[type="submit"]').click();
 
+    cy.contains(/dashboard|admin|ड्यासबोर्ड|प्रशासन/i, {
+      timeout: 15000,
+    }).should("exist");
+    cy.get('span.chakra-avatar img[alt="Ryan Florence"]').click();
+
+    // Check environment to determine if we need to click "Social Services"
+    const isProduction = Cypress.env('USE_PRODUCTION_ENV') === 'true';
+
+    if (!isProduction) {
+      // Testing environment - must expand Social Services section
+      cy.log("Testing Environment detected - Expanding Social Services");
+      cy.contains("button", "Social Services").should('be.visible').click();
+      cy.wait(500);
+    } else {
+      cy.log("Production Environment detected - Skipping Social Services click");
+    }
+  }
+);
 // Helper command to find input/select by label text
 Cypress.Commands.add("getByLabel", (labelText) => {
   return cy.contains("label", labelText).then(($label) => {
@@ -55,14 +77,12 @@ Cypress.Commands.add("navigateToForm", (formName) => {
     .click();
   cy.contains("Apply Sifarish").should("be.visible");
 });
-
 // Search and select a user from the dropdown
 Cypress.Commands.add("searchAndSelectUser", (userName) => {
   cy.get('input[type="radio"][value="search"]').check({ force: true });
   cy.get('input[placeholder="Search User"]').click();
   cy.contains("button[role='menuitem']", userName).click({ force: true });
 });
-
 // Select a date from Nepali date picker
 Cypress.Commands.add("selectNepaliDate", (pickerIndex, dayIndex) => {
   cy.get("input.nepali-date-picker").eq(pickerIndex).click();

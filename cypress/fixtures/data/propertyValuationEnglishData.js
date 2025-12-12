@@ -1,28 +1,30 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameEn = fakerNepali.person.firstNameEn();
+const lastNameEn = fakerNepali.person.lastNameEn();
+
 const propertyValuationEnglishData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "Rajiv",
+        firstName: firstNameEn,
         middleName: "",
-        lastName: "Sapkota",
+        lastName: lastNameEn,
         gender: "Male", // Male
         citizenshipNumber: "123456",
         issueDistrict: "kathmandu",
-        nationalId: "1234567890"
+        nationalId: fakerNepali.contact.nationalIdEn()
     },
 
     // Permanent Address
     permanentAddress: {
         province: "3", // Bagmati
-        district: "28", // Kathmandu (Note: HTML has "Select district" initially, need to check values)
-        // HTML snippet shows values like "1", "2", "3" for Province.
-        // For District, it's empty initially.
-        // Assuming standard cascading behavior.
-        localLevel: "Kathmandu Metropolitan City", // Need to match text or value
+        district: "28", // Kathmandu
+        localLevel: "Kathmandu Metropolitan City",
         ward: "1"
-        // Tole is disabled
     },
 
     // Valuation Details
@@ -35,7 +37,7 @@ const propertyValuationEnglishData = {
     // Property Details
     properties: [
         {
-            ownerName: "Rajiv Sapkota",
+            ownerName: `${firstNameEn} ${lastNameEn}`,
             type: "Land",
             municipality: "Kathmandu",
             wardNo: "10",

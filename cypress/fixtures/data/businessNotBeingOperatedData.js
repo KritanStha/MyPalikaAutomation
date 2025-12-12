@@ -1,15 +1,21 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameNp = fakerNepali.person.firstName();
+const lastNameNp = fakerNepali.person.lastName();
+
 const businessNotBeingOperatedData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "राजेश",
+        firstName: firstNameNp,
         middleName: "",
-        lastName: "हमाल",
-        citizenshipNumber: "२७-०१-७५-०१२३४",
+        lastName: lastNameNp,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
         issueDistrict: "kathmandu",
-        nationalId: "१२३४५६७८९०"
+        nationalId: fakerNepali.contact.nationalId()
     },
 
     // Permanent Address
@@ -18,17 +24,17 @@ const businessNotBeingOperatedData = {
         district: "28", // काठमाडौँ
         localLevel: 1,
         ward: 1,
-        tole: "लाजिम्पाट"
+        tole: fakerNepali.location.village()
     },
 
     // Business Details
     business: {
         regNumber: "१२३४५/०७५/०७६",
-        name: "राजेश स्टोर्स",
+        name: `${firstNameNp} स्टोर्स`,
         type: "किराना पसल", // Grocery Store
-        proprietorName: "राजेश हमाल",
-        landlordName: "हरि बहादुर",
-        phoneNumber: "9841234567",
+        proprietorName: `${firstNameNp} ${lastNameNp}`,
+        landlordName: fakerNepali.person.fullName('MALE'),
+        phoneNumber: fakerNepali.contact.mobileNo(),
         panNumber: "६०१२३४५६७",
         reason: "आर्थिक मन्दीको कारणले" // Due to economic recession
     },
@@ -39,7 +45,7 @@ const businessNotBeingOperatedData = {
         district: "28", // काठमाडौँ
         localLevel: 1,
         ward: 1,
-        tole: "नयाँ बजार"
+        tole: fakerNepali.location.village()
     },
 
     // Other Agency Registration

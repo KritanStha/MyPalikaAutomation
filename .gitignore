@@ -17,6 +17,7 @@ yarn-error.log*
 
 # Environment files
 .env
+.env.production
 cypress.env.json
 
 # IDE files
