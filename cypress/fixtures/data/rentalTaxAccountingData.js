@@ -1,15 +1,21 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameNp = fakerNepali.person.firstName('पुरुष');
+const lastNameNp = fakerNepali.person.lastName();
+
 const rentalTaxAccountingData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "रमेश",
+        firstName: firstNameNp,
         middleName: "",
-        lastName: "थापा",
-        citizenshipNumber: "२७-०१-७५-०१२३४",
+        lastName: lastNameNp,
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
         issueDistrict: "kathmandu",
-        nationalId: "१२३४५६७८९०",
+        nationalId: fakerNepali.contact.nationalId(),
         gender: "पुरुष" // Male
     },
 
@@ -19,12 +25,12 @@ const rentalTaxAccountingData = {
         district: "28", // काठमाडौँ
         localLevel: 1,
         ward: 1,
-        tole: "कलंकी"
+        tole: fakerNepali.location.village()
     },
 
     // Tenant Details
     tenant: {
-        name: "सुनिल कुमार श्रेष्ठ"
+        name: fakerNepali.person.fullName()
     },
 
     // Rental Tax Accounting Detail

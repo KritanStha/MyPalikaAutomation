@@ -11,7 +11,9 @@
     "cy:open": "cypress open",
     "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome-bundle.json",
     "report:generate": "marge cypress/reports/mochawesome-bundle.json --reportDir cypress/reports --reportFilename index.html",
-    "report:full": "npm run report:merge && npm run report:generate"
+    "report:full": "npm run report:merge && npm run report:generate",
+    "test:production": "set USE_PRODUCTION_ENV=true&& cypress run",
+    "open:production": "set USE_PRODUCTION_ENV=true&& cypress open"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   },
   "homepage": "https://github.com/KritanStha/MyPalikaAutomation#readme",
   "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
     "cypress": "^15.7.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^4.0.2",

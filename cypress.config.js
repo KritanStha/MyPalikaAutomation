@@ -1,5 +1,8 @@
 const { defineConfig } = require("cypress");
-require('dotenv').config();
+
+// Load .env.production if USE_PRODUCTION_ENV is set, otherwise load .env
+const envFile = process.env.USE_PRODUCTION_ENV === 'true' ? '.env.production' : '.env';
+require('dotenv').config({ path: envFile });
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -23,6 +26,7 @@ module.exports = defineConfig({
       // Pass environment variables from .env to Cypress
       config.env.USER_EMAIL = process.env.USER_EMAIL;
       config.env.PASSWORD = process.env.PASSWORD;
+      config.env.USE_PRODUCTION_ENV = process.env.USE_PRODUCTION_ENV;
 
       return config;
     },

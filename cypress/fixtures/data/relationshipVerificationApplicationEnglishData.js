@@ -1,15 +1,21 @@
+import fakerNepali from '../../support/fakerNepali.js';
+
+// Generate test data using Faker for common fields
+const firstNameEn = fakerNepali.person.firstNameEn();
+const lastNameEn = fakerNepali.person.lastNameEn();
+
 const relationshipVerificationApplicationEnglishData = {
     userSearch: "Rajiv Sapkota",
     ward: "10",
 
     // Applicant Personal Details
     applicant: {
-        firstName: "Rajiv",
+        firstName: firstNameEn,
         middleName: "",
-        lastName: "Sapkota",
+        lastName: lastNameEn,
         citizenshipNumber: "123456",
         issueDistrict: "kathmandu",
-        nationalId: "1234567890"
+        nationalId: fakerNepali.contact.nationalIdEn()
     },
 
     // Permanent Address
@@ -18,7 +24,7 @@ const relationshipVerificationApplicationEnglishData = {
         district: "Kathmandu", // Text match
         localLevel: "Kathmandu Metropolitan", // Text match
         ward: "1",
-        tole: "Gyaneshwor"
+        tole: fakerNepali.location.villageEn()
     },
 
     // Purpose
@@ -27,11 +33,11 @@ const relationshipVerificationApplicationEnglishData = {
     // Relationship Details
     relatives: [
         {
-            name: "Ram Sapkota",
+            name: `${fakerNepali.person.firstNameEn('MALE')} ${lastNameEn}`,
             relation: "Father"
         },
         {
-            name: "Sita Sapkota",
+            name: `${fakerNepali.person.firstNameEn('FEMALE')} ${lastNameEn}`,
             relation: "Mother"
         }
     ]
