@@ -4,7 +4,7 @@
 // This file contains ONLY unique, non-shared, special-case values
 // for specific form features for ALL forms provided (comments: each form)
 
-import { sharedAddressData , sharedApplicantData, sharedFamilyData, sharedBusinessData, sharedSchoolData, sharedDocuments } from "./SData_Version3";
+import { sharedAddressData, sharedApplicantData, sharedFamilyData, sharedBusinessData, sharedSchoolData, sharedDocuments } from "./SData_Version3";
 // ---- BIRTH DATE VERIFICATION ----
 export const birthDateVerificationUnique = {
   ...sharedApplicantData,
@@ -58,9 +58,9 @@ export const businessNotBeingOperatedUnique = {
   companyRegCertificatePath: sharedDocuments.companyRegCertificatePath,
   renewalCertificatePath: sharedDocuments.renewalCertificatePath,
   fieldVerificationReportPath: sharedDocuments.fieldVerificationReportPath,
-  bOfficeName:"काठमाडौँ महानगरपालिका करदाताको कार्यालय",
+  bOfficeName: "काठमाडौँ महानगरपालिका करदाताको कार्यालय",
   bOfficeAddress: "रुपेश मार्ग"
-  
+
 };
 
 // ---- FUNDAMENTAL SCHOOL OPEN RECOMMENDATION ----
@@ -150,66 +150,116 @@ export const weakEconomicStatusUnique = {
   recommendationFromWardPath: "fixtures/files/recommendationWardWeak.pdf"
 };
 
-export const shBusiness ={
-  businessManFirstName:"Ram",
-  businessManMiddleName:"Prasad",
-  businessManLastName:"Koirala",
+export const shBusiness = {
+  businessManFirstName: "final",
+  businessManMiddleName: "Prasad",
+  businessManLastName: "test",
   applicantFirstName: "राम",
   applicantMiddleName: "प्रसाद",
   applicantLastName: "कोइराला",
-  fhFirstName:"Bhim",
-  fhMiddleName:"Bahadur",
-  fhLastName:"Koirala",
+  fhFirstName: "Bhim",
+  fhMiddleName: "Bahadur",
+  fhLastName: "Koirala",
 
   fatherFirstName: "भीम",
   fatherMiddleName: "बहादुर",
   fatherLastName: "कोइराला",
-  fatherinlawFirstName:"Durga",
-  fatherinlawMiddleName:"Prasad",
-  fatherinlawLastName:"Koirala",
+  fatherinlawFirstName: "Durga",
+  fatherinlawMiddleName: "Prasad",
+  fatherinlawLastName: "Koirala",
   grandfatherFirstName: "दुर्गा",
   grandfatherMiddleName: "प्रसाद",
   grandfatherLastName: "कोइराला",
 
-  citizenshipNumber:"1234567856",
-  phoneNumber:"9801234567",
-  email:"ram2@gmail.com",
-  houseNumber:"123",
-  houseWardNumber:"10",
-  houseStreetNumber:"12A",
+  citizenshipNumber: "1234567856",
+  phoneNumber: "9801234567",
+  email: "ram2@gmail.com",
+  houseNumber: "123",
+  houseWardNumber: "10",
+  houseStreetNumber: "12A",
 
-  businessEnName:"Apple farm",
-  businessNeplaiName:"सयाऊ फार्म ",
-  currentCapital:"50000",
-  fixedCapital:"200000",
-  oldRegistrationNumber:"23456",
-  registrationOfficeName:"xyz office",
+  businessEnName: "Apple farm1",
+  businessNeplaiName: "सयाऊ फार्म ",
+  currentCapital: "50000",
+  fixedCapital: "200000",
+  oldRegistrationNumber: "23456",
+  registrationOfficeName: "xyz office",
 
-  landlordFirstNameEn:"Shyam",
-  landlordMiddleNameEn:"Prasad",
-  landlordLastNameEn:"Shrestha",
-  landlordNepaliFirstName:"श्याम",
-  landlordNepaliMiddleName:"प्रसाद",
-  landlordNepaliLastName:"श्रेष्ठ",
-  signBoardLength:"5",
-  signBoardWidth:"3",
-  signBoardType:"ब्यापारिक",
-  rentToBePaydMonthly:"15000",
+  landlordFirstNameEn: "Shyam",
+  landlordMiddleNameEn: "Prasad",
+  landlordLastNameEn: "Shrestha",
+  landlordNepaliFirstName: "श्याम",
+  landlordNepaliMiddleName: "प्रसाद",
+  landlordNepaliLastName: "श्रेष्ठ",
+  signBoardLength: "5",
+  signBoardWidth: "3",
+  signBoardType: "ब्यापारिक",
+  rentToBePaydMonthly: "15000",
 
-  applicantFirstNameEn:"Sudeep",
-  applicantMiddleNameEn:"Prasad",
-  applicantLastNameEn:"Koirala",
-  applicantFirstNameNepali:"सुदीप",
-  applicantMiddleNameNepali:"प्रसाद",
-  applicantLastNameNepali:"कोइराला",
-  applicantCitizenshipNumber:"87654321",
-  applicantCitizenshipIssuedDistrict:"kathmandu",
-  applicantHouseNumber:"456",
+  applicantFirstNameEn: "Sudeep",
+  applicantMiddleNameEn: "Prasad",
+  applicantLastNameEn: "Koirala",
+  applicantFirstNameNepali: "सुदीप",
+  applicantMiddleNameNepali: "प्रसाद",
+  applicantLastNameNepali: "कोइराला",
+  applicantCitizenshipNumber: "87654321",
+  applicantCitizenshipIssuedDistrict: "kathmandu",
+  applicantHouseNumber: "456",
 
-  province:"बागमती",
-  district:"काठमान्डौ",
-  localLevel:"काठमाडौँ महानगरपालिका",
-  wardNumber:"१०",
+  province: "बागमती",
+  district: "काठमान्डौ",
+  localLevel: "काठमाडौँ महानगरपालिका",
+  wardNumber: "१०",
 
-  voucherNumber:"VN123",
+  voucherNumber: "VN123",
+}
+
+export const udisability = {
+  //patron detail
+  firstNameEn: 'final',
+  middleNameEn: 'Prasad',
+  lastNameEn: 'test',
+  firstNameNepali: 'राम',
+  middleNameNepali: 'प्रसाद',
+  lastNameNepali: 'Koirala',
+  dateOfBirth: '',
+  citizenshipNumber: '87654321',
+  contact: '9856743215',
+  occupation: 'Teacher',
+  mothlyIncome: '40000',
+
+  //Disability detail
+
+  description: 'Not able to walk properly',
+  activityLimit: 'Not able to walk',
+  nameOfAccessory: 'Stick',
+  dailyTask: 'eating',
+  taskHelp: 'walking',
+  trainingRecord: 'not',
+  taskWithHelp: 'walking',
+  otherServices: 'glasses',
+}
+
+export const reciverDetail = {
+  //Additional information
+  caste: '14',
+  latestEducation: 'Master',
+  adOccupation: 'Teacher',
+  wardNumber: '10',
+  ownsLand: 'Yes',
+  ownsHome: 'Yes',
+  stillStudying: 'No',
+
+  //Receiver Detail
+  firstNameEn: 'Suresh Kumar',
+  firstNameNepali: 'सुरेश कुमार',
+  mobileNumber: '9841234567',
+
+  //Authority Detail
+  authorityNameEn: 'Ramesh Adhikari',
+  authorityNameNepali: 'रमेश अधिकारी',
+  authorityMobileNumber: '9851234567',
+  designation: 'Ward Secretary',
+  officeAddress: 'Kathmandu-10',
+  remarks: 'Verified'
 }

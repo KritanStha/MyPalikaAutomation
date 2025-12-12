@@ -65,3 +65,16 @@ export const sharedDocuments = {
   meetingMinutesPath: "fixtures/files/meetingMinutes.pdf"
 };
 
+export const personalInfo = {
+  firstNameEn: 'final',
+  middleNameEn: 'Kumar',
+  lastNameEn: 'test',
+  firstNameNepali: 'सुरेश',
+  middleNameNepali: 'कुमार',
+  lastNameNepali: 'कोइराला',
+  email: 'suresh.koirala123@example.com',
+  nameOfOrganization: 'ABC Company',
+  mothlySalary: '30000',
+  mobileNumber: '9841234567',
+  citizenshipNo: '12-01-70-12345'
+}

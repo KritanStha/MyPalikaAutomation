@@ -1,28 +1,28 @@
 import BRL from "../fixtures/Locators/businessRegistration";
 import { shBusiness } from "../fixtures/data/UData_Version3";
 
-describe("Business Registration", ()=>{
-    it("Add New Business Registration", ()=>{
+describe("Business Registration", () => {
+    it("Add New Business Registration", () => {
         cy.on('uncaught:exception', () => false)
         cy.login()
-        
+
         // Click on Business Registration accordion button to expand the menu
         cy.contains('Business Registration')
             .parent()
             .find('button[aria-expanded]')
             .click();
-        
+
         // Wait and click on the Business Registration link inside the expanded menu
         cy.contains('a', 'Business Registration')
             .scrollIntoView()
             .should('be.visible')
             .click();
-            
+
         cy.get(BRL.addNewBusinessRegistration).click();
         cy.get(BRL.searchUserInput).click();
-        cy.get('#menu-list-\\:r4n\\:-menuitem-\\:r4t\\:').click();
+        cy.contains('button', '- (9843530325)').wait(2000).click();
 
-        cy.get(BRL.businessManFirstNameEnInput).clear().type(shBusiness.businessManFirstName);
+        cy.get(BRL.businessManFirstNameEnInput).clear().wait(2000).type(shBusiness.businessManFirstName);
         cy.get(BRL.businessManMiddleNameEnInput).clear().type(shBusiness.businessManMiddleName);
         cy.get(BRL.businessManLastNameEnInput).clear().type(shBusiness.businessManLastName);
         cy.get(BRL.businessManFirstNameNepaliInput).clear().type(shBusiness.applicantFirstName);
@@ -40,7 +40,7 @@ describe("Business Registration", ()=>{
         cy.get(BRL.nepaligrandFatherFirstName).clear().type(shBusiness.grandfatherFirstName);
         cy.get(BRL.nepaligrandFatherMiddleName).clear().type(shBusiness.grandfatherMiddleName);
         cy.get(BRL.nepaligrandFatherLastName).clear().type(shBusiness.grandfatherLastName);
-        
+
         cy.get(BRL.CitizenshipNumber).clear().type(shBusiness.citizenshipNumber);
         cy.get(BRL.PhoneNumber).clear().type(shBusiness.phoneNumber);
         cy.get(BRL.Email).clear().type(shBusiness.email);
@@ -56,12 +56,12 @@ describe("Business Registration", ()=>{
         cy.get(BRL.currentCapitalInput).clear().type(shBusiness.currentCapital);
         cy.get(BRL.fixedCapitalInput).clear().type(shBusiness.fixedCapital);
         cy.get(BRL.businessStartDatePicker).eq(0).click();
-        cy.get('td.month-day.current') 
-        .contains('१') 
-        .click();
+        cy.get('td.month-day.current')
+            .contains('१')
+            .click();
         cy.get(BRL.businessCategorySelect).select('KHA');
-        cy.get(BRL.oldRegistrationNumberInput).type(shBusiness.oldRegistrationNumber),{force:true};
-        cy.get(BRL.registerOfficeNameInput).type(shBusiness.registrationOfficeName,{force:true});
+        cy.get(BRL.oldRegistrationNumberInput).type(shBusiness.oldRegistrationNumber), { force: true };
+        cy.get(BRL.registerOfficeNameInput).type(shBusiness.registrationOfficeName, { force: true });
         // Click Next button with force to bypass visibility check
         cy.get('button.chakra-button.css-arfz4w').eq(1).click({ force: true });
         cy.wait(5000)
@@ -97,13 +97,13 @@ describe("Business Registration", ()=>{
 
         // Step 2: Ensure the tab opened
         cy.get('input.nepali-date-picker').eq(1).should('be.visible').click()
-        cy.get('td.month-day.current') 
-        .contains('१') 
-        .click();
+        cy.get('td.month-day.current')
+            .contains('१')
+            .click();
 
         //cy.selectNepaliDate(0, 15);
         cy.get(BRL.applicantHouseNumberInput).clear().type(shBusiness.applicantHouseNumber);
-         cy.get('button.chakra-button.css-arfz4w').eq(3).click({ force: true });
+        cy.get('button.chakra-button.css-arfz4w').eq(3).click({ force: true });
 
         //
         // Address Details Section (ठेगाना)
@@ -113,19 +113,19 @@ describe("Business Registration", ()=>{
         cy.get(BRL.businessmanMunicipalitySelect).eq(2).select('Gorkha Municipality');
         cy.get(BRL.businessmanWardSelect).eq(3).select('3613');
 
-         cy.get(BRL.businessmanProvinceSelect).eq(4).select('Bagmati');
+        cy.get(BRL.businessmanProvinceSelect).eq(4).select('Bagmati');
         cy.get(BRL.businessmanDistrictSelect).eq(5).select('Lalitpur');
         cy.get(BRL.businessmanMunicipalitySelect).eq(6).select('Lalitpur Metropolitan');
-         cy.get(BRL.businessmanWardSelect).eq(7).select('3019');
-         cy.get(BRL.businessmanProvinceSelect).eq(8).select('Koshi');
+        cy.get(BRL.businessmanWardSelect).eq(7).select('3019');
+        cy.get(BRL.businessmanProvinceSelect).eq(8).select('Koshi');
         cy.get(BRL.businessmanDistrictSelect).eq(9).select('Jhapa');
         cy.get(BRL.businessmanMunicipalitySelect).eq(10).select('Kankai Municipality');
-      cy.get(BRL.businessmanWardSelect).eq(11).select('707');
-      cy.wait(5000)
+        cy.get(BRL.businessmanWardSelect).eq(11).select('707');
+        cy.wait(5000)
 
-       
 
-        
+
+
 
 
 
@@ -134,30 +134,30 @@ describe("Business Registration", ()=>{
 
 
         // Document Section
-       cy.get(BRL.citizenshipFrontPhotoInput)
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+        cy.get(BRL.citizenshipFrontPhotoInput)
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
 
         cy.get(BRL.citizenshipBackPhotoInput)
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
 
         cy.get(BRL.landLordRedBookPhotoCopyInput)
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/kiran.png');
         cy.get(BRL.voucherFileInput)
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
         cy.get(BRL.voucherNumberInput).type(shBusiness.voucherNumber);
 
         cy.get(BRL.voucherDatePicker).eq(4).should('be.visible').click()
-        cy.get('td.month-day.current') 
-        .contains('१') 
-        .click();
+        cy.get('td.month-day.current')
+            .contains('१')
+            .click();
 
         /*cy.get(BRL.ownHouseCheckbox).check({ force: true });
         cy.contains('span.chakra-radio__label', 'व्यक्तिगत')
@@ -175,35 +175,35 @@ describe("Business Registration", ()=>{
         //cy.get('input.chakra-checkbox__input').check({ force: true });
 
         cy.contains('span.chakra-radio__label', 'व्यक्तिगत')
-        .click();
+            .click();
         cy.get('label[for="field-:r63:"]')
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf')
-        
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf')
+
 
         // Select 'घरेलु'
         cy.contains('span.chakra-radio__label', 'घरेलु').click();
         cy.wait(2000);
         cy.get('label[for="field-:r66:"]')
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
 
         cy.get(BRL.businessTypeSelect).select('EDUCATIONAL')
         cy.wait(2000);
         cy.get('label[for="field-:r69:"]')
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
         cy.get('label[for="field-:r6a:"]')
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
         cy.get('label[for="field-:r6b:"]')
-        .parent()
-        .find('input[type="file"]')
-        .attachFile('/files/fieldVerf.pdf');
+            .parent()
+            .find('input[type="file"]')
+            .attachFile('/files/fieldVerf.pdf');
         cy.wait(2000);
         cy.get('.chakra-button.css-arfz4w').eq(1).click({ force: true });
 

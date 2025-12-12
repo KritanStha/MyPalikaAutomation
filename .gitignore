@@ -17,9 +17,10 @@ yarn-error.log*
 
 # Environment files
 cypress.env.json
+.env
+!.env.example
 
 # IDE files
-.vscode/
 .idea/
 
 # OS files
@@ -30,4 +31,3 @@ Thumbs.db
 mochawesome-report/
 mochawesome.json
 reports/
-.env
