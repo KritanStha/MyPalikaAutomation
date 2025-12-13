@@ -21,6 +21,11 @@ const disabilityLocators = {
     religion: '[name="userReligion"]',
     dateOfBirth: '.nepali-date-picker',
     telephoneNo: '[name="telephoneNo"]',
+    // For adults (age >= 18)
+    citizenshipNo: '[name="citizenshipNo"]',
+    citizenshipIssuedDistrict: '[name="citizenshipIssuedDistrict"]',
+    citizenshipIssuedDate: '.nepali-date-picker',
+    // For minors (age < 18)
     birthRegistrationNumber: '[name="birthRegistrationNumber"]',
     birthCertificateIssueDistrict: '[name="issueDistrict"]',
     birthCertificateIssueDate: '.nepali-date-picker',
@@ -69,6 +74,7 @@ const disabilityLocators = {
     // Disability Detail Section
     registrationDate: '[name="registrationDate"]',
     disabilityType: '[name="disabilityType"]',
+    disabilitySubtype: '[name="disabilitySubtype"]',
     disabilitySeverity: '[name="disabilitySeverity"]',
     category: '[name="category"]',
     cause: '[name="cause"]',

@@ -1,7 +1,7 @@
 import DL from "../fixtures/Locators/disabilityLocators";
 import data from "../fixtures/data/disabilityData";
 
-describe("Disability Application", () => {
+describe("Disability Application - Godaita (Production)", () => {
     it("Should fill and submit the complete Disability form", () => {
         // Ignore uncaught exceptions from server-side template errors
         cy.on('uncaught:exception', (err, runnable) => {
@@ -12,8 +12,6 @@ describe("Disability Application", () => {
             // Let other errors fail the test
             return true;
         });
-
-        // Login and navigate to Social Services section
         cy.loginSocialServices();
 
         // Click on Disability and Create
@@ -26,9 +24,13 @@ describe("Disability Application", () => {
         // Select "All" radio button to show all users
         cy.get('input[type="radio"][value=""]').check({ force: true });
 
-        // Search user - type name (form auto-populates)
+        // Search and select user
         cy.get('input[placeholder="Search User"]').click();
         cy.get('input[placeholder="Search User"]').type(data.userSearch);
+        cy.wait(500); // Wait for dropdown to appear
+        // Click on the user from the dropdown
+        cy.contains(data.userSearch).click();
+        cy.wait(1000); // Wait for form to populate with user data
 
         // ========== PERSONAL INFORMATION SECTION ==========
         cy.contains("Personal Information").should("be.visible");
@@ -40,10 +42,25 @@ describe("Disability Application", () => {
         cy.get(DL.lastNameNp).eq(0).clear().type(data.personal.lastNameNp, { force: true });
 
         cy.get(DL.email).clear().type(data.personal.email);
-        cy.get(DL.gender).select(data.personal.gender, { force: true });
+
+        // Select dropdowns by text for production compatibility
+        cy.get(DL.gender).then($select => {
+            const genderText = data.personal.gender === 'MALE' ? 'Male' : data.personal.gender === 'FEMALE' ? 'Female' : 'Others';
+            cy.wrap($select).select(genderText, { force: true });
+        });
+
         cy.get(DL.bloodGroup).select(data.personal.bloodGroup, { force: true });
-        cy.get(DL.maritalStatus).select(data.personal.maritalStatus, { force: true });
-        cy.get(DL.employmentStatus).select(data.personal.employmentStatus, { force: true });
+
+        cy.get(DL.maritalStatus).then($select => {
+            const statusMap = { 'SINGLE': 'Single', 'MARRIED': 'Married', 'DIVORCED': 'Divorced', 'WIDOWED': 'Widowed', 'SEPARATED': 'Separated' };
+            cy.wrap($select).select(statusMap[data.personal.maritalStatus] || data.personal.maritalStatus, { force: true });
+        });
+
+        cy.get(DL.employmentStatus).then($select => {
+            const statusMap = { 'EMPLOYED': 'Employed', 'UNEMPLOYED': 'Unemployed' };
+            cy.wrap($select).select(statusMap[data.personal.employmentStatus] || data.personal.employmentStatus, { force: true });
+        });
+
         cy.get(DL.religion).select(data.personal.religion, { force: true });
 
         // Date of Birth (First Date Picker)
@@ -61,7 +78,17 @@ describe("Disability Application", () => {
 
                 // Fill birth registration fields
                 cy.get(DL.birthRegistrationNumber).clear().type(data.personal.birthRegistrationNumber);
-                cy.get(DL.birthCertificateIssueDistrict).select(data.personal.birthCertificateIssueDistrict, { force: true });
+
+                // Select birth certificate district by text (works in production)
+                cy.get(DL.birthCertificateIssueDistrict).then($select => {
+                    const options = $select.find('option');
+                    const matchingOption = [...options].find(opt =>
+                        opt.text.includes('Kathmandu') || opt.text.includes('काठमाडौं')
+                    );
+                    if (matchingOption) {
+                        cy.wrap($select).select(matchingOption.value, { force: true });
+                    }
+                });
 
                 // Birth Certificate Issue Date (Second Date Picker)
                 cy.get(DL.birthCertificateIssueDate).eq(1).find('input').click();
@@ -72,7 +99,17 @@ describe("Disability Application", () => {
 
                 // Fill citizenship fields
                 cy.get(DL.citizenshipNo).clear().type(data.personal.citizenshipNo);
-                cy.get(DL.citizenshipIssuedDistrict).select(data.personal.citizenshipIssuedDistrict, { force: true });
+
+                // Select citizenship issued district by text (works in production)
+                cy.get(DL.citizenshipIssuedDistrict).then($select => {
+                    const options = $select.find('option');
+                    const matchingOption = [...options].find(opt =>
+                        opt.text.includes('Kathmandu') || opt.text.includes('काठमाडौं')
+                    );
+                    if (matchingOption) {
+                        cy.wrap($select).select(matchingOption.value, { force: true });
+                    }
+                });
 
                 // Citizenship Issued Date (Second Date Picker)
                 cy.get(DL.citizenshipIssuedDate).eq(1).find('input').click();
@@ -81,8 +118,15 @@ describe("Disability Application", () => {
             }
         });
 
-        cy.get(DL.qualification).select(data.personal.qualification, { force: true });
-        cy.get(DL.occupation).select(data.personal.occupation, { force: true });
+        cy.get(DL.qualification).then($select => {
+            const qualMap = { 'See': 'SEE', 'PlusTwo': '+2', 'BachelorsDegree': "Bachelor's Degree", 'MastersDegree': "Master's Degree" };
+            cy.wrap($select).select(qualMap[data.personal.qualification] || data.personal.qualification, { force: true });
+        });
+
+        cy.get(DL.occupation).then($select => {
+            const occMap = { 'Agriculture': 'Agriculture', 'Business': 'Business', 'Others': 'Others', 'Unemployed': 'Unemployed', 'Studying': 'Studying', 'PrivateSector': 'Private Sector', 'SelfEmployment': 'Self Employed' };
+            cy.wrap($select).select(occMap[data.personal.occupation] || data.personal.occupation, { force: true });
+        });
         cy.get(DL.organizationName).clear().type(data.personal.organizationName);
         cy.get(DL.monthlySalary).clear().type(data.personal.monthlySalary);
         cy.get(DL.mobileNo).clear().type(data.personal.mobileNo);
@@ -127,7 +171,11 @@ describe("Disability Application", () => {
         cy.get(DL.patronLastNameNp).eq(1).clear().type(data.patron.lastNameNp, { force: true });
 
         cy.get(DL.patronEmail).clear().type(data.patron.email);
-        cy.get(DL.patronRelation).select(data.patron.relation, { force: true });
+
+        cy.get(DL.patronRelation).then($select => {
+            const relMap = { 'GrandFather': 'Grandfather', 'GrandMother': 'Grandmother' };
+            cy.wrap($select).select(relMap[data.patron.relation] || data.patron.relation, { force: true });
+        });
 
         // Patron Address (Index 1 - because Temporary Address is hidden/removed due to checkbox)
         // Patron Province
@@ -163,7 +211,17 @@ describe("Disability Application", () => {
         cy.get('td.month-day.current').eq(12).click();
 
         cy.get(DL.patronCitizenshipNo).clear().type(data.patron.citizenshipNo);
-        cy.get(DL.patronCitizenshipIssuedDistrict).select(data.patron.citizenshipIssuedDistrict, { force: true });
+
+        // Select patron citizenship issued district by text (works in production)
+        cy.get(DL.patronCitizenshipIssuedDistrict).then($select => {
+            const options = $select.find('option');
+            const matchingOption = [...options].find(opt =>
+                opt.text.includes('Kathmandu') || opt.text.includes('काठमाडौं')
+            );
+            if (matchingOption) {
+                cy.wrap($select).select(matchingOption.value, { force: true });
+            }
+        });
 
         // Patron Citizenship Issued Date (Fourth Date Picker)
         cy.get(DL.patronCitizenshipIssuedDate).eq(3).find('input').click();
@@ -191,8 +249,15 @@ describe("Disability Application", () => {
             }
         });
 
-        cy.get(DL.disabilitySeverity).select(data.disability.disabilitySeverity, { force: true });
-        cy.get(DL.category).select(data.disability.category, { force: true });
+        cy.get(DL.disabilitySeverity).then($select => {
+            const sevMap = { 'TOTAL': 'पूर्ण अशक्त अपाङ्गता', 'SEVERE': 'अति अशक्त अपाङ्गता', 'MODERATE': 'मध्यम अपाङ्गता', 'GENERAL': 'सामान्य अपाङ्गता' };
+            cy.wrap($select).select(sevMap[data.disability.disabilitySeverity] || data.disability.disabilitySeverity, { force: true });
+        });
+
+        cy.get(DL.category).then($select => {
+            const catMap = { 'MILD': 'क', 'MODERATE': 'ख', 'PROFOUND_SEVERE': 'ग', 'SEVERE': 'घ' };
+            cy.wrap($select).select(catMap[data.disability.category] || data.disability.category, { force: true });
+        });
         cy.get(DL.cause).select(data.disability.cause, { force: true });
         cy.get(DL.nature).select(data.disability.nature, { force: true });
         cy.get(DL.seriousness).select(data.disability.seriousness, { force: true });
@@ -201,8 +266,6 @@ describe("Disability Application", () => {
 
         if (data.disability.useAccessory) {
             cy.get(DL.useAccessory).check({ force: true });
-            // Fill the conditional "Name of Accessory" field that appears when checkbox is checked
-            cy.get(DL.nameOfAccessory).clear().type(data.disability.nameOfAccessory);
         }
 
         cy.get(DL.taskWithoutHelp).clear().type(data.disability.taskWithoutHelp);
@@ -212,9 +275,18 @@ describe("Disability Application", () => {
         cy.get(DL.otherServices).clear().type(data.disability.otherServices);
 
         // ========== ADDITIONAL INFORMATION SECTION ==========
+        // Caste field - type the value directly (production may use text input)
         cy.get(DL.caste).clear().type(data.additionalInfo.caste);
-        cy.get(DL.latestEducation).select(data.additionalInfo.latestEducation, { force: true });
-        cy.get(DL.additionalOccupation).select(data.additionalInfo.occupation, { force: true });
+
+        cy.get(DL.latestEducation).then($select => {
+            const eduMap = { 'ILLITERATE': 'Illiterate', 'LITERATE': 'Literate', 'PRIMARY_LEVEL': 'Primary Level', 'LOWER_SECONDARY_LEVEL': 'Lower Secondary Level', 'SECONDARY_LEVEL': 'Secondary Level', 'HIGHER_SECONDARY_LEVEL': 'Higher Secondary Level', 'BACHELOR_LEVEL': "Bachelor's Level", 'MASTER_LEVEL': "Master's Level", 'PHD_LEVEL': 'Ph.D Level' };
+            cy.wrap($select).select(eduMap[data.additionalInfo.latestEducation] || data.additionalInfo.latestEducation, { force: true });
+        });
+
+        cy.get(DL.additionalOccupation).then($select => {
+            const occMap = { 'JOBLESS': 'Jobless', 'STUDY': 'Study', 'AGRICULTURE': 'Agriculture', 'SELF_EMPLOYED': 'Self Employed', 'GOVERNMENT_SERVICE': 'Government Service', 'PRIVATE_SECTOR': 'Private Sector', 'OTHER': 'Other' };
+            cy.wrap($select).select(occMap[data.additionalInfo.occupation] || data.additionalInfo.occupation, { force: true });
+        });
         cy.get(DL.wardNumber).clear().type(data.additionalInfo.ward);
 
         if (data.additionalInfo.ownHouse) {

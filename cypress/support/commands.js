@@ -44,17 +44,14 @@ Cypress.Commands.add("loginSocialServices",
     }).should("exist");
     cy.get('span.chakra-avatar img[alt="Ryan Florence"]').click();
 
-    // Check environment to determine if we need to click "Social Services"
-    const isProduction = Cypress.env('USE_PRODUCTION_ENV') === 'true';
+    cy.get('button').contains('Social Services').then($btn => {
+      const isExpanded = $btn.attr('aria-expanded') === 'true';
 
-    if (!isProduction) {
-      // Testing environment - must expand Social Services section
-      cy.log("Testing Environment detected - Expanding Social Services");
-      cy.contains("button", "Social Services").should('be.visible').click();
-      cy.wait(500);
-    } else {
-      cy.log("Production Environment detected - Skipping Social Services click");
-    }
+      if (!isExpanded) {
+        cy.wrap($btn).click({ force: true });
+        cy.wait(500);
+      }
+    });
   }
 );
 // Helper command to find input/select by label text
@@ -81,7 +78,7 @@ Cypress.Commands.add("navigateToForm", (formName) => {
 });
 // Search and select a user from the dropdown
 Cypress.Commands.add("searchAndSelectUser", (userName) => {
-  cy.get('input[type="radio"][value="search"]').check({ force: true });
+  // cy.get('input[type="radio"][value="search"]').check({ force: true });
   cy.get('input[placeholder="Search User"]').click();
   cy.contains("button[role='menuitem']", userName).click({ force: true });
 });

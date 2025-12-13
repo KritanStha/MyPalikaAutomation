@@ -17,14 +17,14 @@ const BLOOD_GROUPS = {
         'O-': 'b07bd07a-18c4-42eb-a88c-b9491884c63a'
     },
     production: {
-        'A+': 'f75d9302-8187-4f22-9a32-9ebfe088a38a',
-        'A-': 'prod-a-minus-uuid-here',
-        'B+': 'prod-b-plus-uuid-here',
-        'B-': 'prod-b-minus-uuid-here',
-        'O+': 'prod-o-plus-uuid-here',
-        'O-': 'prod-o-minus-uuid-here',
-        'AB+': 'prod-ab-plus-uuid-here',
-        'AB-': 'prod-ab-minus-uuid-here'
+        'A+': '4e02b9ea-a91c-46ba-bdc0-102cf66abb47',
+        'A-': 'edae71bd-4e37-4cd5-b4a3-62d58068f797',
+        'B+': 'feeec4bd-ed6f-49dc-acc5-7826fabb9c48',
+        'B-': 'fd0cf8b2-2288-4368-9959-90819c4edfc4',
+        'AB+': '91f09f47-61b8-482f-94c6-529b879e29fc',
+        'AB-': 'b38b79c5-f50b-414f-965a-2e4a18e41a85',
+        'O+': '145cb954-1318-4482-9489-5fbcdcf3171d',
+        'O-': 'b07bd07a-18c4-42eb-a88c-b9491884c63a'
     }
 };
 
@@ -38,12 +38,18 @@ const RELIGIONS = {
         'Sikhism': '64d3fd9d-1ef7-4e81-8024-49271864db37'
     },
     production: {
-        'Hinduism': 'prod-hinduism-uuid-here',
-        'Buddhism': 'prod-buddhism-uuid-here',
-        'Islam': 'prod-islam-uuid-here',
-        'Christianity': 'prod-christianity-uuid-here',
-        'Kiratism': 'prod-kiratism-uuid-here',
-        'Sikhism': 'prod-sikhism-uuid-here'
+        'Hinduism': 'ee365044-c562-4256-80d4-6258c68c98d6',
+        'Buddhism': 'c3cdd9a5-761f-4e6f-af50-cfef11170f75',
+        'Islam': '52809501-518b-4480-ad7b-279cdd71e467',
+        'Christianity': '0caa9592-0431-44da-b86d-8a5af3e848ef',
+        'Kiratism': '0fc7cfc5-1f0f-4098-93ec-a6168079df6f',
+        'Sikhism': '64d3fd9d-1ef7-4e81-8024-49271864db37',
+        'Bon': 'b1267e0a-19fe-47f6-847b-a3b897e0e1df',
+        'Jainism': '52080944-2b1f-4f8c-9111-10de0180ad81',
+        "Bahá'í Faith": '5af6d3be-9784-4c3c-9671-857ab8c03806',
+        'Ayyavazhi': '76aceb79-3daa-48e6-b3a0-d6322f9903d5',
+        'Satya Sai Baba': '6ddf259b-18ce-4b3e-b27b-cdd00e03bdd6',
+        'Others': '63253a34-04c9-4595-975b-1563f93c831a'
     }
 };
 
@@ -59,6 +65,20 @@ const DISABILITY_CATEGORY = ['MILD', 'MODERATE', 'PROFOUND_SEVERE', 'SEVERE'];
 const DISABILITY_CAUSE = ['रोगको दिर्घ असर', 'दुर्घटना', 'जन्मघात', 'सशस्त्र द्वन्द', 'वंशानुगत कारण', 'अन्य'];
 const DISABILITY_NATURE = ['स्थायी', 'अस्थायी'];
 const DISABILITY_SERIOUSNESS = ['हल्का', 'मध्यम', 'गम्भीर'];
+
+// Disability Subtypes - mapped to disability types
+const DISABILITY_SUBTYPES = {
+    'PHYSICAL_DISABILITY': ['AMPUTATION', 'CEREBRAL_PALSY', 'DWARFISM', 'LEPROSY_CURED', 'MUSCULAR_DYSTROPHY', 'ACID_ATTACK_VICTIM', 'OTHERS'],
+    'VISUAL_DISABILITY': ['BLIND', 'LOW_VISION'],
+    'HEARING_DISABILITY': ['DEAF', 'HARD_OF_HEARING'],
+    'HEARING_VISUAL_IMPAIRMENT': ['DEAF_BLIND'],
+    'VOICE_SPEECH_IMPAIRMENT': ['SPEECH_IMPAIRMENT'],
+    'MENTAL_PSYCHOSOCIAL_DISABILITY': ['MENTAL_ILLNESS'],
+    'INTELLECTUAL_DISABILITY': ['SPECIFIC_LEARNING_DISABILITY', 'INTELLECTUAL_DISABILITY'],
+    'HEMOPHILIA_RELATED_DISABILITY': ['HEMOPHILIA', 'THALASSEMIA', 'SICKLE_CELL_DISEASE'],
+    'AUTISM_RELATED_DISABILITY': ['AUTISM_SPECTRUM_DISORDER'],
+    'MULTIPLE_DISABILITIES': ['MULTIPLE_DISABILITIES']
+};
 
 // Generate test data using Faker for common fields
 const gender = faker.helpers.arrayElement(['MALE', 'FEMALE']);
@@ -104,8 +124,12 @@ const disabilityData = {
         employmentStatus: faker.helpers.arrayElement(EMPLOYMENT_STATUS),
         religion: RELIGIONS[env][selectedReligion],
         telephoneNo: fakerNepali.contact.mobileNo(),
+        // For minors (age < 18)
         birthRegistrationNumber: String(faker.number.int({ min: 1000000, max: 9999999 })),
         birthCertificateIssueDistrict: "Kathmandu",
+        // For adults (age >= 18) - kept for reference
+        citizenshipNo: fakerNepali.contact.citizenshipNo(),
+        citizenshipIssuedDistrict: "28", // Kathmandu
         qualification: faker.helpers.arrayElement(QUALIFICATIONS),
         occupation: faker.helpers.arrayElement(OCCUPATIONS),
         organizationName: "Test Organization",
@@ -153,25 +177,32 @@ const disabilityData = {
     },
 
     // Disability Details
-    disability: {
-        registrationDate: "2020-02-02",
-        disabilityType: faker.helpers.arrayElement(DISABILITY_TYPES),
-        disabilitySeverity: faker.helpers.arrayElement(DISABILITY_SEVERITY),
-        category: faker.helpers.arrayElement(DISABILITY_CATEGORY),
-        cause: faker.helpers.arrayElement(DISABILITY_CAUSE),
-        nature: faker.helpers.arrayElement(DISABILITY_NATURE),
-        seriousness: faker.helpers.arrayElement(DISABILITY_SERIOUSNESS),
-        description: "Not able to walk properly",
-        activityLimitDescription: "Not able to walk",
-        needOfAccessory: faker.datatype.boolean(),
-        useAccessory: faker.datatype.boolean(),
-        nameOfAccessory: "Wheelchair",
-        taskWithoutHelp: "eating",
-        helpForWhichTask: "walking",
-        trainingReceived: "not",
-        taskWithHelp: "walking",
-        otherServices: "glasses"
-    },
+    disability: (() => {
+        const selectedDisabilityType = faker.helpers.arrayElement(DISABILITY_TYPES);
+        const availableSubtypes = DISABILITY_SUBTYPES[selectedDisabilityType] || [];
+        const selectedSubtype = availableSubtypes.length > 0 ? faker.helpers.arrayElement(availableSubtypes) : '';
+
+        return {
+            registrationDate: "2020-02-02",
+            disabilityType: selectedDisabilityType,
+            disabilitySubtype: selectedSubtype,
+            disabilitySeverity: faker.helpers.arrayElement(DISABILITY_SEVERITY),
+            category: faker.helpers.arrayElement(DISABILITY_CATEGORY),
+            cause: faker.helpers.arrayElement(DISABILITY_CAUSE),
+            nature: faker.helpers.arrayElement(DISABILITY_NATURE),
+            seriousness: faker.helpers.arrayElement(DISABILITY_SERIOUSNESS),
+            description: "Not able to walk properly",
+            activityLimitDescription: "Not able to walk",
+            needOfAccessory: faker.datatype.boolean(),
+            useAccessory: faker.datatype.boolean(),
+            nameOfAccessory: "Wheelchair",
+            taskWithoutHelp: "eating",
+            helpForWhichTask: "walking",
+            trainingReceived: "not",
+            taskWithHelp: "walking",
+            otherServices: "glasses"
+        };
+    })(),
 
     // Additional Information
     additionalInfo: {

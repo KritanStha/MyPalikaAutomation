@@ -50,7 +50,6 @@ const JN = {
     caretakerDistrict: 'select[name="careTaker.address.district"]',
     caretakerMunicipality: 'select[name="careTaker.address.municipality"]',
     caretakerWard: 'select[name="careTaker.address.wardNo"]',
-    caretakerVillage: 'input[name="careTaker.address.village"]',
     caretakerCitizenshipNo: 'input[name="careTaker.citizenshipNo"]',
     caretakerCitizenshipIssuedDistrict: 'select[name="careTaker.citizenshipIssuedDistrict"]',
     caretakerContact: 'input[name="careTaker.contact"]',

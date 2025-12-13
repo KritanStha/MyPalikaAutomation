@@ -20,8 +20,8 @@ const businessNotBeingOperatedData = {
 
     // Permanent Address
     permanentAddress: {
-        province: "3", // बागमती
-        district: "28", // काठमाडौँ
+        province: "3",
+        district: "28",
         localLevel: 1,
         ward: 1,
         tole: fakerNepali.location.village()
@@ -41,8 +41,8 @@ const businessNotBeingOperatedData = {
 
     // Business Address
     businessAddress: {
-        province: "3", // बागमती
-        district: "28", // काठमाडौँ
+        province: "3",
+        district: "28",
         localLevel: 1,
         ward: 1,
         tole: fakerNepali.location.village()
