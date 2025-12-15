@@ -25,6 +25,14 @@ const BLOOD_GROUPS = {
         'AB-': 'b38b79c5-f50b-414f-965a-2e4a18e41a85',
         'O+': '145cb954-1318-4482-9489-5fbcdcf3171d',
         'O-': 'b07bd07a-18c4-42eb-a88c-b9491884c63a'
+        // 'A+': 'f75d9302-8187-4f22-9a32-9ebfe088a38a',
+        // 'A-': '1307b176-fa33-4cf1-8fe5-be873c0dfd67',
+        // 'B+': '15ec24e4-e911-4744-880a-8edf1cfe8769',
+        // 'B-': 'd83a2155-b38e-4292-93c9-a9f8645a52cb',
+        // 'AB+': '20963214-8392-48b8-bca0-004ccda58177',
+        // 'AB-': 'e708accc-beea-4ddb-aac4-7571463d56e4',
+        // 'O+': '939ee20f-ce15-487f-9ff2-e29a63e8004a',
+        // 'O-': '3b8a5b6a-a303-4b9b-9e75-50b02f127f50'
     }
 };
 
@@ -50,6 +58,18 @@ const RELIGIONS = {
         'Ayyavazhi': '76aceb79-3daa-48e6-b3a0-d6322f9903d5',
         'Satya Sai Baba': '6ddf259b-18ce-4b3e-b27b-cdd00e03bdd6',
         'Others': '63253a34-04c9-4595-975b-1563f93c831a'
+        // 'Hinduism': '42027113-d2cd-49ea-832c-8eb5b4297dca',
+        // 'Buddhism': '20d4c678-74c4-4f99-9a80-2812fd756a61',
+        // 'Islam': 'a83c19c1-02a4-4186-877d-0ba063ad2ab5',
+        // 'Christianity': '5e49dd14-ccf3-4c97-b773-91f17f8f9c4e',
+        // 'Kiratism': 'ee5a9a8c-2f50-480e-8859-419f22ff1f18',
+        // 'Sikhism': 'b12dfbc0-36aa-436c-bcf4-d0148a1faea2',
+        // 'Bon': '43bdf799-e5f4-433f-a581-09390678a5cd',
+        // 'Jainism': 'edd457d8-c540-4217-b8c2-21be39bdce7e',
+        // "Bahá'í Faith": '718a39f5-35b4-4756-be19-40e59155b501',
+        // 'Ayyavazhi': '7a1088c4-85fd-4c22-a5ac-fe143e3b6b43',
+        // 'Satya Sai Baba': 'c1358573-67af-4f03-8fef-ca4ed5575136',
+        // 'Others': '707ad985-503b-412e-bfd5-94d0f2d4d3ed'
     }
 };
 

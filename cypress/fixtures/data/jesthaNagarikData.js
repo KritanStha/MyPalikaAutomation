@@ -17,20 +17,20 @@ const BLOOD_GROUPS = {
         'O-': 'b07bd07a-18c4-42eb-a88c-b9491884c63a'
     },
     production: {
-        'A+': 'f75d9302-8187-4f22-9a32-9ebfe088a38a',
-        'A-': 'prod-a-minus-uuid-here',
-        'B+': 'prod-b-plus-uuid-here',
-        'B-': 'prod-b-minus-uuid-here',
-        'O+': 'prod-o-plus-uuid-here',
-        'O-': 'prod-o-minus-uuid-here',
-        'AB+': 'prod-ab-plus-uuid-here',
-        'AB-': 'prod-ab-minus-uuid-here'
+        'A+': '4e02b9ea-a91c-46ba-bdc0-102cf66abb47',
+        'A-': 'edae71bd-4e37-4cd5-b4a3-62d58068f797',
+        'B+': 'feeec4bd-ed6f-49dc-acc5-7826fabb9c48',
+        'B-': 'fd0cf8b2-2288-4368-9959-90819c4edfc4',
+        'AB+': '91f09f47-61b8-482f-94c6-529b879e29fc',
+        'AB-': 'b38b79c5-f50b-414f-965a-2e4a18e41a85',
+        'O+': '145cb954-1318-4482-9489-5fbcdcf3171d',
+        'O-': 'b07bd07a-18c4-42eb-a88c-b9491884c63a'
     }
 };
 
 const QUALIFICATIONS = ['See', 'PlusTwo', 'BachelorsDegree', 'MastersDegree'];
 const OCCUPATIONS = ['Agriculture', 'Business', 'Others', 'Unemployed', 'Studying', 'PrivateSector', 'SelfEmployment'];
-const RELATIONS = ['Son', 'Daughter', 'Wife', 'Husband', 'Father', 'Mother', 'Brother', 'Sister', 'Grandson', 'Granddaughter', 'Other'];
+const RELATIONS = ['Son', 'Daughter', 'Brother', 'Sister', 'Father', 'GrandFather', 'GrandMother', 'Husband', 'Mother', 'Wife'];
 const FACILITIES = [
     'स्वास्थ्य सेवा', 'खाना सेवा', 'आवास सेवा', 'शिक्षा सेवा',
     'मनोरञ्जन सेवा', 'यातायात सेवा', 'कानूनी सहायता', 'आर्थिक सहायता',

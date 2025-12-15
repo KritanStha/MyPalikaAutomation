@@ -12,8 +12,6 @@ describe("Disability Application", () => {
             // Let other errors fail the test
             return true;
         });
-
-        // Login and navigate to Social Services section
         cy.loginSocialServices();
 
         // Click on Disability and Create
@@ -28,7 +26,8 @@ describe("Disability Application", () => {
 
         // Search user - type name (form auto-populates)
         cy.get('input[placeholder="Search User"]').click();
-        cy.get('input[placeholder="Search User"]').type(data.userSearch);
+        cy.get('input[placeholder="Search User"]').type("rajiv");
+
 
         // ========== PERSONAL INFORMATION SECTION ==========
         cy.contains("Personal Information").should("be.visible");

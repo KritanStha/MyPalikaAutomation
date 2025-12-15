@@ -27,10 +27,6 @@ describe("Disability Application - Godaita (Production)", () => {
         // Search and select user
         cy.get('input[placeholder="Search User"]').click();
         cy.get('input[placeholder="Search User"]').type(data.userSearch);
-        cy.wait(500); // Wait for dropdown to appear
-        // Click on the user from the dropdown
-        cy.contains(data.userSearch).click();
-        cy.wait(1000); // Wait for form to populate with user data
 
         // ========== PERSONAL INFORMATION SECTION ==========
         cy.contains("Personal Information").should("be.visible");
@@ -42,8 +38,6 @@ describe("Disability Application - Godaita (Production)", () => {
         cy.get(DL.lastNameNp).eq(0).clear().type(data.personal.lastNameNp, { force: true });
 
         cy.get(DL.email).clear().type(data.personal.email);
-
-        // Select dropdowns by text for production compatibility
         cy.get(DL.gender).then($select => {
             const genderText = data.personal.gender === 'MALE' ? 'Male' : data.personal.gender === 'FEMALE' ? 'Female' : 'Others';
             cy.wrap($select).select(genderText, { force: true });
@@ -266,6 +260,7 @@ describe("Disability Application - Godaita (Production)", () => {
 
         if (data.disability.useAccessory) {
             cy.get(DL.useAccessory).check({ force: true });
+            cy.get(DL.nameOfAccessory).clear().type(data.disability.nameOfAccessory);
         }
 
         cy.get(DL.taskWithoutHelp).clear().type(data.disability.taskWithoutHelp);
