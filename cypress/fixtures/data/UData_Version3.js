@@ -203,7 +203,7 @@ export const shBusiness = {
   applicantMiddleNameNepali: "प्रसाद",
   applicantLastNameNepali: "कोइराला",
   applicantCitizenshipNumber: "87654321",
-  applicantCitizenshipIssuedDistrict: "kathmandu",
+  applicantCitizenshipIssuedDistrict: "Lalitpur",
   applicantHouseNumber: "456",
 
   province: "बागमती",
