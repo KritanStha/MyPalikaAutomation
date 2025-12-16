@@ -1,6 +1,6 @@
-import relationCertificateDeceasedLocators from "../fixtures/Locators/relationCertificateDeceasedLocators"
-import { sharedApplicantData, sharedAddressData } from "../fixtures/data/SData_Version3"
-import { relationCertificateDeceasedUnique } from "../fixtures/data/UData_Version3"
+import relationCertificateDeceasedLocators from "../../fixtures/Locators/relationCertificateDeceasedLocators"
+import { sharedApplicantData, sharedAddressData } from "../../fixtures/data/SData_Version3"
+import { relationCertificateDeceasedUnique } from "../../fixtures/data/UData_Version3"
 
 describe('Relation certificate Deceased', () => {
     it('Relation certificate Deceased', () => {
@@ -12,8 +12,7 @@ describe('Relation certificate Deceased', () => {
             .scrollIntoView()
             .click();
 
-        cy.get(relationCertificateDeceasedLocators.searchUserInput).click()
-        cy.contains('Rajiv Notification - (9843530325)').click();
+        cy.searchAndSelectUser('Rajiv Notification - (9843530326)');
         cy.get(relationCertificateDeceasedLocators.wardSelect).select('4');
 
         cy.get(relationCertificateDeceasedLocators.applicantFirstNameInput)

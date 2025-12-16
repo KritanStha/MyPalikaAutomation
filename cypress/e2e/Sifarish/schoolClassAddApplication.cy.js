@@ -1,5 +1,5 @@
-import SCAA from "../fixtures/Locators/schoolClassAddApplicationLocators";
-import data from "../fixtures/data/schoolClassAddApplicationData";
+import SCAA from "../../fixtures/Locators/schoolClassAddApplicationLocators";
+import data from "../../fixtures/data/schoolClassAddApplicationData";
 
 describe("School Class Add Application", () => {
     it("Should fill and submit the complete school class add application form", () => {

@@ -1,5 +1,5 @@
-import JN from "../fixtures/Locators/jesthaNagarikLocators";
-import data from "../fixtures/data/jesthaNagarikData";
+import JN from "../../fixtures/Locators/jesthaNagarikLocators";
+import data from "../../fixtures/data/jesthaNagarikData";
 
 describe("Jestha Nagarik (Senior Citizen) Application", () => {
     it("Should fill and submit the complete Jestha Nagarik form", () => {

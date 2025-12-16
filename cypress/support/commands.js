@@ -78,9 +78,27 @@ Cypress.Commands.add("navigateToForm", (formName) => {
 });
 // Search and select a user from the dropdown
 Cypress.Commands.add("searchAndSelectUser", (userName) => {
-  // cy.get('input[type="radio"][value="search"]').check({ force: true });
-  cy.get('input[placeholder="Search User"]').click();
-  cy.contains("button[role='menuitem']", userName).click({ force: true });
+  const firstName = userName.split(" ")[0];
+  cy.get('input[placeholder="Search User"]').click().clear().type(firstName, { delay: 100 });
+
+  // Wait for the search debounce and network request
+  cy.wait(2500);
+
+  // Use a regex to be tolerant of whitespace differences
+  const pattern = userName
+    .replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') // Escape special chars
+    .replace(/\s+/g, '\\s+'); // Allow flexible whitespace
+  const regex = new RegExp(pattern, 'i');
+
+  // Find the specific menu item button and click it
+  cy.get("button[role='menuitem']", { timeout: 10000 })
+    .should('have.length.gt', 0) // Ensure dropdown is open
+    .filter((index, element) => {
+      const text = element.innerText || element.textContent;
+      return regex.test(text);
+    })
+    .first()
+    .click({ force: true });
 });
 // Select a date from Nepali date picker
 Cypress.Commands.add("selectNepaliDate", (pickerIndex, dayIndex) => {

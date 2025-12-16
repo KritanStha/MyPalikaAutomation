@@ -1,5 +1,5 @@
-import RTA from "../fixtures/Locators/rentalTaxAccountingLocators";
-import data from "../fixtures/data/rentalTaxAccountingData";
+import RTA from "../../fixtures/Locators/rentalTaxAccountingLocators";
+import data from "../../fixtures/data/rentalTaxAccountingData";
 
 describe("Rental Tax Accounting", () => {
     it("Should fill and submit the complete rental tax accounting form", () => {

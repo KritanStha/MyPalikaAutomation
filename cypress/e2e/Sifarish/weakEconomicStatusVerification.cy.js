@@ -1,5 +1,5 @@
-import WESV from "../fixtures/Locators/weakEconomicStatusVerificationLocators";
-import data from "../fixtures/data/weakEconomicStatusVerificationData";
+import WESV from "../../fixtures/Locators/weakEconomicStatusVerificationLocators";
+import data from "../../fixtures/data/weakEconomicStatusVerificationData";
 
 describe("Weak Economic Status Verification", () => {
     it("Should fill and submit the complete weak economic status verification form", () => {

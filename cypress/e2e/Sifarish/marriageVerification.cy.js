@@ -1,5 +1,5 @@
-import MVL from "../fixtures/Locators/marriageVerificationLocators";
-import data from "../fixtures/data/marriageVerificationData";
+import MVL from "../../fixtures/Locators/marriageVerificationLocators";
+import data from "../../fixtures/data/marriageVerificationData";
 
 describe("Marriage Verification", () => {
     it("Should fill and submit the complete marriage verification form", () => {

@@ -1,5 +1,5 @@
-import RVAE from "../fixtures/Locators/relationshipVerificationApplicationEnglishLocators";
-import data from "../fixtures/data/relationshipVerificationApplicationEnglishData";
+import RVAE from "../../fixtures/Locators/relationshipVerificationApplicationEnglishLocators";
+import data from "../../fixtures/data/relationshipVerificationApplicationEnglishData";
 
 describe("Relationship Verification Application English", () => {
     it("Should fill and submit the complete relationship verification application english form", () => {

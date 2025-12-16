@@ -1,5 +1,5 @@
-import RVAN from "../fixtures/Locators/relationshipVerificationApplicationNepaliLocators";
-import data from "../fixtures/data/relationshipVerificationApplicationNepaliData";
+import RVAN from "../../fixtures/Locators/relationshipVerificationApplicationNepaliLocators";
+import data from "../../fixtures/data/relationshipVerificationApplicationNepaliData";
 
 describe("Relationship Verification Application Nepali", () => {
     it("Should fill and submit the complete relationship verification application nepali form", () => {

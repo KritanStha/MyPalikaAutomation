@@ -1,19 +1,18 @@
-import businessClosedRecommendationLocators from "../fixtures/Locators/businessClosedRecommendationLocators";
-import { sharedApplicantData, sharedAddressData ,sharedBusinessData} from "../fixtures/data/SData_Version3";
-import { businessNotBeingOperatedUnique } from "../fixtures/data/UData_Version3";
+import businessClosedRecommendationLocators from "../../fixtures/Locators/businessClosedRecommendationLocators";
+import { sharedApplicantData, sharedAddressData, sharedBusinessData } from "../../fixtures/data/SData_Version3";
+import { businessNotBeingOperatedUnique } from "../../fixtures/data/UData_Version3";
 
 
 
 
-describe('Business Closed ', ()=>{
-    it("Business Closed Recommendation", ()=>{
+describe('Business Closed ', () => {
+    it("Business Closed Recommendation", () => {
 
         cy.on('uncaught:exception', () => false)
         cy.login()
-        
+
         cy.contains(businessClosedRecommendationLocators.businessClosedText, 'Business Closed Recommendation').click();
-        cy.get(businessClosedRecommendationLocators.searchUserInput).click()
-        cy.contains('Rajiv Notification - (9843530325)').click();
+        cy.searchAndSelectUser('Rajiv Notification - (9843530326)');
 
 
 
@@ -36,9 +35,9 @@ describe('Business Closed ', ()=>{
             .type(sharedApplicantData.applicantCitizenshipNumber);
 
         cy.get(businessClosedRecommendationLocators.applicantIssueDatePicker).eq(0).click();
-        cy.get('td.month-day.current') 
-        .contains('६') 
-        .click();
+        cy.get('td.month-day.current')
+            .contains('६')
+            .click();
 
         cy.get(businessClosedRecommendationLocators.applicantIssueDistrictSelect)
             .select(sharedApplicantData.applicantIssueDistrict);
@@ -65,14 +64,14 @@ describe('Business Closed ', ()=>{
 
         // Business Closed Dates
         cy.get(businessClosedRecommendationLocators.businessClosedFromDatePicker).eq(1).should('be.visible').click();
-        cy.get('td.month-day.current') 
-        .contains('६') 
-        .click();// From Date
+        cy.get('td.month-day.current')
+            .contains('६')
+            .click();// From Date
 
         cy.get(businessClosedRecommendationLocators.businessClosedToDatePicker).eq(2).click();
-        cy.get('td.month-day.current') 
-        .contains('६') 
-        .click(); // To Date
+        cy.get('td.month-day.current')
+            .contains('६')
+            .click(); // To Date
 
         // Reason for closure
         cy.get(businessClosedRecommendationLocators.businessClosureReasonInput)
@@ -80,56 +79,56 @@ describe('Business Closed ', ()=>{
 
         // Onsite Survey Date
         cy.get(businessClosedRecommendationLocators.onsiteSurveyDatePicker).eq(3).click();
-        cy.get('td.month-day.current') 
-        .contains('६') 
-        .click();
+        cy.get('td.month-day.current')
+            .contains('६')
+            .click();
 
         cy.get(businessClosedRecommendationLocators.officeNameInput).type(businessNotBeingOperatedUnique.bOfficeName)
         cy.get(businessClosedRecommendationLocators.officeAddressInput).type(businessNotBeingOperatedUnique.bOfficeAddress)
 
 
         cy.get(businessClosedRecommendationLocators.companyRegCertificateInput)
-        .attachFile('files/compReg.pdf')
+            .attachFile('files/compReg.pdf')
 
         cy.get(businessClosedRecommendationLocators.renewalCertificateInput)
-        .attachFile('files/fieldVerf.pdf')
+            .attachFile('files/fieldVerf.pdf')
 
         cy.get(businessClosedRecommendationLocators.fieldVerificationReportInput)
-        .attachFile('files/renewalCert.pdf')
+            .attachFile('files/renewalCert.pdf')
 
         cy.get(businessClosedRecommendationLocators.applyButton).click()
 
         cy.get(businessClosedRecommendationLocators.submit).click()
-        
+
 
         cy.get('a[href*="admin-dashboard/application"]')
-        .contains('Sifarish')
-        .click({ force: true });
+            .contains('Sifarish')
+            .click({ force: true });
 
 
-        
-        
+
+
 
         cy.contains('td', 'Business Closed Recommendation')
-        .first()
-        .closest('tr')
-        .within(() => {
-        // Click the View button in the row
-        cy.get('button[aria-label="show"]')
-        .scrollIntoView()
-        .click({ force: true });
+            .first()
+            .closest('tr')
+            .within(() => {
+                // Click the View button in the row
+                cy.get('button[aria-label="show"]')
+                    .scrollIntoView()
+                    .click({ force: true });
 
-      });
-      
-        
+            });
+
+
 
         cy.get('.chakra-select.css-ysxrja').select('7f59d5eb-52c3-493d-9482-6e82ef96869b')
         cy.get('.chakra-button.chakra-menu__menu-button.css-arfz4w').eq(1).click()
         cy.get('.chakra-menu__menuitem.css-y7jzs3').eq(3).click();
-        
 
 
-  })
+
+    })
 });
 
 
@@ -139,4 +138,3 @@ describe('Business Closed ', ()=>{
 
 
 
- 

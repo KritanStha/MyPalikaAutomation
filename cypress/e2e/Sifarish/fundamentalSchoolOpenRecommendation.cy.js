@@ -1,5 +1,5 @@
-import FSOR from "../fixtures/Locators/fundamentalSchoolOpenRecommendationLocators";
-import data from "../fixtures/data/fundamentalSchoolOpenRecommendationData";
+import FSOR from "../../fixtures/Locators/fundamentalSchoolOpenRecommendationLocators";
+import data from "../../fixtures/data/fundamentalSchoolOpenRecommendationData";
 
 describe("Fundamental School Open Recommendation", () => {
     it("Should fill and submit the complete fundamental school open recommendation form", () => {

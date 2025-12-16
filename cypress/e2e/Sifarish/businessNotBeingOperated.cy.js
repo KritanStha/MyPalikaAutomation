@@ -1,5 +1,5 @@
-import BNBO from "../fixtures/Locators/businessNotBeingOperatedLocators";
-import data from "../fixtures/data/businessNotBeingOperatedData";
+import BNBO from "../../fixtures/Locators/businessNotBeingOperatedLocators";
+import data from "../../fixtures/data/businessNotBeingOperatedData";
 
 describe("Business Not Being Operated", () => {
     it("Should fill and submit the complete business not being operated form", () => {

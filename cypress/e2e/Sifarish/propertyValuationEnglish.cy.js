@@ -1,5 +1,5 @@
-import PVE from "../fixtures/Locators/propertyValuationEnglishLocators";
-import data from "../fixtures/data/propertyValuationEnglishData";
+import PVE from "../../fixtures/Locators/propertyValuationEnglishLocators";
+import data from "../../fixtures/data/propertyValuationEnglishData";
 
 describe("Property valuation(English)", () => {
     it("Should fill and submit the complete property valuation english form", () => {

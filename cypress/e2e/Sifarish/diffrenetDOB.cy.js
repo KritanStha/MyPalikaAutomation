@@ -1,5 +1,5 @@
-import DDA from "../fixtures/Locators/differentDobApplicationLocators";
-import data from "../fixtures/data/differentDobData";
+import DDA from "../../fixtures/Locators/differentDobApplicationLocators";
+import data from "../../fixtures/data/differentDobData";
 
 describe("Different Date Of Birth Application", () => {
   it("Should fill and submit the complete form with Nepali data", () => {

@@ -1,5 +1,5 @@
-import NBRR from "../fixtures/Locators/newBusinessRegistrationLocators";
-import data from "../fixtures/data/newBusinessRegistrationData";
+import NBRR from "../../fixtures/Locators/newBusinessRegistrationLocators";
+import data from "../../fixtures/data/newBusinessRegistrationData";
 
 describe("Recommendation for New Business Registration", () => {
     it("Should fill and submit the complete business registration form", () => {
