@@ -4,7 +4,7 @@
 // This file contains ONLY unique, non-shared, special-case values
 // for specific form features for ALL forms provided (comments: each form)
 
-import { sharedAddressData, sharedApplicantData, sharedFamilyData, sharedDocuments } from "./SData_Version3";
+import { sharedAddressData, sharedApplicantData, sharedFamilyData, sharedDocuments, sharedSchoolData } from "./SData_Version3";
 // ---- BIRTH DATE VERIFICATION ----
 export const birthDateVerificationUnique = {
   ...sharedApplicantData,
@@ -83,4 +83,13 @@ export const strongEconomicStatusUnique = {
   officeAddress: "रुपेश मार्ग, काठमाडौं",
   propertyTaxReceiptPath: "fixtures/files/propertyTaxReceipt.pdf",
   recommendationFromWardPath: "fixtures/files/recommendationWard.pdf"
+};
+
+// ---- BUSINESS NOT BEING OPERATED (Business Closed) ----
+export const businessNotBeingOperatedUnique = {
+  businessRegistrationNo: "123456789",
+  businessName: "राम प्रसाद जनरल स्टोर",
+  reasonNotOperating: "आर्थिक मन्दी",
+  bOfficeName: "वडा कार्यालय",
+  bOfficeAddress: "काठमान्डौ"
 };
