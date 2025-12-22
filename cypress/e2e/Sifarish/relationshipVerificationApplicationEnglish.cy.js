@@ -14,7 +14,7 @@ describe("Relationship Verification Application English", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(RVAE.applicantSection).should("be.visible");
+        cy.contains(RVAE.applicantSection).scrollIntoView().should("be.visible");
         cy.get(RVAE.firstName).clear().type(data.applicant.firstName);
         cy.get(RVAE.middleName).clear();
         cy.get(RVAE.lastName).clear().type(data.applicant.lastName);

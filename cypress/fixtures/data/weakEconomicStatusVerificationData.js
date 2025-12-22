@@ -5,7 +5,7 @@ const firstNameNp = fakerNepali.person.firstName('महिला');
 const lastNameNp = fakerNepali.person.lastName();
 
 const weakEconomicStatusVerificationData = {
-    userSearch: "Rajiv Sapkota",
+    userSearch: "Sresta Sharma",
     ward: "10",
 
     // Applicant Personal Details

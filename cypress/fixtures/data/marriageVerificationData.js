@@ -7,7 +7,7 @@ const wifeFirstName = fakerNepali.person.firstName('FEMALE');
 const wifeLastName = fakerNepali.person.lastName();
 
 const marriageVerificationData = {
-    userSearch: "Rajiv Sapkota",
+    userSearch: "Sresta Sharma",
     ward: "10",
 
     // Husband's Personal Details
@@ -15,7 +15,9 @@ const marriageVerificationData = {
         firstName: husbandFirstName,
         middleName: "",
         lastName: husbandLastName,
-        citizenshipNumber: fakerNepali.contact.citizenshipNo()
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
+        issueDistrict: "kathmandu",
+        nationalId: fakerNepali.contact.nationalId()
     },
 
     // Husband's Address
@@ -51,7 +53,10 @@ const marriageVerificationData = {
         firstName: wifeFirstName,
         middleName: "",
         lastName: wifeLastName,
-        citizenshipNumber: fakerNepali.contact.citizenshipNo()
+        citizenshipNumber: fakerNepali.contact.citizenshipNo(),
+        issueDistrict: "kathmandu",
+        gender: "महिला",
+        nationalId: fakerNepali.contact.nationalId()
     },
 
     // Wife's Address

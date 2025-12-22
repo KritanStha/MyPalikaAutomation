@@ -11,10 +11,9 @@ describe("Fundamental School Open Recommendation", () => {
 
         // Select ward
         cy.get(FSOR.wardSelect).eq(0).select(data.ward, { force: true });
-        cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(FSOR.applicantSection).should("be.visible");
+        cy.contains(FSOR.applicantSection).scrollIntoView().should("be.visible");
         cy.get(FSOR.firstName).clear().type(data.applicant.firstName);
         cy.get(FSOR.middleName).clear();
         cy.get(FSOR.lastName).clear().type(data.applicant.lastName);
@@ -32,11 +31,8 @@ describe("Fundamental School Open Recommendation", () => {
         // Fill Permanent Address
         cy.contains(FSOR.permanentAddressSection).should("be.visible");
         cy.get("select").eq(2).select(data.permanentAddress.province, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(3).should("not.be.disabled").select(data.permanentAddress.district, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(4).should("not.be.disabled").select(data.permanentAddress.localLevel, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(5).should("not.be.disabled").select(data.permanentAddress.ward, { force: true });
         cy.get(FSOR.tole).eq(0).clear().type(data.permanentAddress.tole);
 

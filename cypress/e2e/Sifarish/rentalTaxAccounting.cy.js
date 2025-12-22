@@ -14,7 +14,7 @@ describe("Rental Tax Accounting", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(RTA.applicantSection).should("be.visible");
+        cy.contains(RTA.applicantSection).scrollIntoView().should("be.visible");
         cy.get(RTA.firstName).clear().type(data.applicant.firstName);
         cy.get(RTA.middleName).clear();
         cy.get(RTA.lastName).clear().type(data.applicant.lastName);

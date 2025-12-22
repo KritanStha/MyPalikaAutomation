@@ -22,7 +22,7 @@ const businessClosedRecommendationLocators = {
   searchUserInput: 'input[placeholder="Search User"]',
 
   // ======= Application Ward Section =======
-  wardSelect: '#field-\\:r3f\\:',
+  wardSelect: 'select:eq(0)',
 
   // ======= Applicant Personal Details Section =======
   applicantFirstNameInput: '#field-\\:r3g\\:',

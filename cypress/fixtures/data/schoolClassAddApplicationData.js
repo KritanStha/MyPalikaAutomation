@@ -5,7 +5,7 @@ const firstNameNp = fakerNepali.person.firstName();
 const lastNameNp = fakerNepali.person.lastName();
 
 const schoolClassAddApplicationData = {
-    userSearch: "Rajiv Sapkota",
+    userSearch: "Sresta Sharma",
     ward: "10",
 
     // Applicant Personal Details

@@ -5,7 +5,7 @@ const firstNameNp = fakerNepali.person.firstName('पुरुष');
 const lastNameNp = fakerNepali.person.lastName();
 
 const rentalTaxAccountingData = {
-    userSearch: "Rajiv Sapkota",
+    userSearch: "Sresta Sharma",
     ward: "10",
 
     // Applicant Personal Details

@@ -15,6 +15,9 @@ const JN = {
     bloodGroupSelect: 'select[name="bloodgroup"]',
     citizenshipNo: 'input[name="citizenshipNo"]',
     citizenshipIssuedDistrict: 'select[name="citizenshipIssuedDistrict"]',
+    citizenshipIssuedDate: '.nepali-date-picker',
+    // maritalStatus, employmentStatus, religion - Removed as they are not in the form
+    dateOfBirth: '.nepali-date-picker',
     qualification: 'select[name="qualification"]',
     occupation: 'select[name="occupation"]',
     mobileNo: 'input[name="mobileNo"]',
@@ -50,8 +53,10 @@ const JN = {
     caretakerDistrict: 'select[name="careTaker.address.district"]',
     caretakerMunicipality: 'select[name="careTaker.address.municipality"]',
     caretakerWard: 'select[name="careTaker.address.wardNo"]',
+    caretakerDOB: '.nepali-date-picker',
     caretakerCitizenshipNo: 'input[name="careTaker.citizenshipNo"]',
     caretakerCitizenshipIssuedDistrict: 'select[name="careTaker.citizenshipIssuedDistrict"]',
+    caretakerCitizenshipIssuedDate: '.nepali-date-picker',
     caretakerContact: 'input[name="careTaker.contact"]',
 
     // Jestha Nagarik Details Section
@@ -59,6 +64,7 @@ const JN = {
     hasIllness: 'input[name="hasIllness"]',
     hasCareCenter: 'input[name="hasCareCenter"]',
     availableFacilitiesInput: 'input[name="availableFacilities.0.name"]',
+    careCenterDescription: 'textarea[name="careCenterDescription"]',
     addFacilityButton: "button:contains('Add')",
     deleteFacilityButton: 'button[aria-label="Delete Available Facilities Button"]',
 

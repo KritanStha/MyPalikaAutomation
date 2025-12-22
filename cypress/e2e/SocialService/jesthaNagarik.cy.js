@@ -38,19 +38,15 @@ describe("Jestha Nagarik (Senior Citizen) Application", () => {
         // Select Blood Group
         cy.get(JN.bloodGroupSelect).select(data.personal.bloodGroup, { force: true });
 
-        // Select Date of Birth (First Date Picker)
-        cy.get('.nepali-date-picker').eq(0).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(10).click();
+        // Date of Birth (First Date Picker)
+        cy.selectNepaliDate(0, 5);
 
         // Fill Citizenship Details
         cy.get(JN.citizenshipNo).clear().type(data.personal.citizenshipNo);
         cy.get(JN.citizenshipIssuedDistrict).select(data.personal.citizenshipIssuedDistrict, { force: true });
 
-        // Select Citizenship Issued Date (Second Date Picker)
-        cy.get('.nepali-date-picker').eq(1).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(15).click();
+        // Citizenship Issued Date (Second Date Picker)
+        cy.selectNepaliDate(1, 5);
 
         // Select Qualification and Occupation
         cy.get(JN.qualification).select(data.personal.qualification, { force: true });
@@ -163,18 +159,14 @@ describe("Jestha Nagarik (Senior Citizen) Application", () => {
         cy.get(JN.caretakerWard).should("not.be.disabled").select(data.caretaker.ward, { force: true });
 
         // Select Caretaker Date of Birth (Third Date Picker)
-        cy.get('.nepali-date-picker').eq(2).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(12).click();
+        cy.selectNepaliDate(2, 5);
 
         // Fill Caretaker Citizenship Details
         cy.get(JN.caretakerCitizenshipNo).clear().type(data.caretaker.citizenshipNo);
         cy.get(JN.caretakerCitizenshipIssuedDistrict).select(data.caretaker.citizenshipIssuedDistrict, { force: true });
 
         // Select Caretaker Citizenship Issued Date (Fourth Date Picker)
-        cy.get('.nepali-date-picker').eq(3).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(18).click();
+        cy.selectNepaliDate(3, 5);
 
         // Fill Caretaker Contact
         cy.get(JN.caretakerContact).clear().type(data.caretaker.contact);
@@ -195,6 +187,9 @@ describe("Jestha Nagarik (Senior Citizen) Application", () => {
         // Check care center checkbox if needed
         if (data.jesthaNagarik.hasCareCenter) {
             cy.get(JN.hasCareCenter).check({ force: true });
+
+            // Fill care center description if checkbox is checked
+            cy.get(JN.careCenterDescription).should('be.visible').clear().type('Old Age Home, Kathmandu');
         }
 
         // Fill Available Facilities (first one is already present)

@@ -13,6 +13,7 @@ const marriageVerificationLocators = {
     husbandMiddleName: 'input[placeholder="Write your Middle Name"]',
     husbandLastName: 'input[placeholder="Write your Last Name"]',
     husbandCitizenship: 'input[placeholder="Write Husband\'s citizenship number"]',
+    husbandNationalId: 'input[placeholder="Enter national ID number"]',
 
     // Husband's Address Details
     husbandAddressSection: "Husband's Address Details",
@@ -29,10 +30,11 @@ const marriageVerificationLocators = {
 
     // Wife's Personal Details
     wifeSection: "Wife's Personal Details",
-    wifeFirstName: 'input[placeholder="Write your first Name"]',
-    wifeMiddleName: 'input[placeholder="Write your Middle Name"]',
-    wifeLastName: 'input[placeholder="Write your Last Name"]',
-    wifeCitizenship: 'input[placeholder="Write your Wife\'s citizenship number"]',
+    wifeFirstName: 'input[placeholder="Enter first name"]',
+    wifeMiddleName: 'input[placeholder="Enter middle name"]',
+    wifeLastName: 'input[placeholder="Enter last name"]',
+    wifeCitizenship: 'input[placeholder="Enter citizenship number"]',
+    wifeNationalId: 'input[placeholder="Enter national ID number"]',
 
     // Wife's Address Details
     wifeAddressSection: "Wife's Address Details",

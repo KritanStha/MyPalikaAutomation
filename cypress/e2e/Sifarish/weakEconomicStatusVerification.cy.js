@@ -14,7 +14,7 @@ describe("Weak Economic Status Verification", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(WESV.applicantSection).should("be.visible");
+        cy.contains(WESV.applicantSection).scrollIntoView().should("be.visible");
         cy.get(WESV.firstName).clear().type(data.applicant.firstName);
         cy.get(WESV.middleName).clear();
         cy.get(WESV.lastName).clear().type(data.applicant.lastName);

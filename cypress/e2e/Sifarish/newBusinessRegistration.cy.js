@@ -14,7 +14,7 @@ describe("Recommendation for New Business Registration", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(NBRR.applicantSection).should("be.visible");
+        cy.contains(NBRR.applicantSection).scrollIntoView().should("be.visible");
         cy.get(NBRR.firstName).clear().type(data.applicant.firstName);
         cy.get(NBRR.middleName).clear();
         cy.get(NBRR.lastName).clear().type(data.applicant.lastName);
@@ -32,11 +32,8 @@ describe("Recommendation for New Business Registration", () => {
         // Fill Permanent Address
         cy.contains(NBRR.permanentAddressSection).should("be.visible");
         cy.get("select").eq(2).select(data.permanentAddress.province, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(3).should("not.be.disabled").select(data.permanentAddress.district, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(4).should("not.be.disabled").select(data.permanentAddress.localLevel, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(5).should("not.be.disabled").select(data.permanentAddress.ward, { force: true });
         cy.get('input[placeholder="Enter tole name"]').eq(0).clear().type(data.permanentAddress.tole);
 
@@ -46,11 +43,8 @@ describe("Recommendation for New Business Registration", () => {
 
         // Business Address - Cascading Dropdowns
         cy.get("select").eq(6).select(data.business.province, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(7).should("not.be.disabled").select(data.business.district, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(8).should("not.be.disabled").select(data.business.localLevel, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(9).should("not.be.disabled").select(data.business.ward, { force: true });
         cy.get('input[placeholder="Enter tole name"]').eq(1).clear().type(data.business.tole);
 

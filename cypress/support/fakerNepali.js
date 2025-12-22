@@ -85,7 +85,7 @@ const generateCitizenshipNo = () => {
     const year = faker.number.int({ min: 50, max: 80 });
     const serial = faker.number.int({ min: 10000, max: 99999 });
     const citizenship = `${district}-01-${year}-${serial}`;
-    return toNepaliDigits(citizenship);
+    return citizenship;
 };
 
 /**
@@ -102,7 +102,7 @@ const generateMobileNo = () => {
  */
 const generateNationalId = () => {
     const id = faker.number.int({ min: 1000000000, max: 9999999999 });
-    return toNepaliDigits(id);
+    return String(id);
 };
 
 /**

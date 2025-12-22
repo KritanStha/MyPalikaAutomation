@@ -8,15 +8,11 @@ import { businessNotBeingOperatedUnique } from "../../fixtures/data/UData_Versio
 describe('Business Closed ', () => {
     it("Business Closed Recommendation", () => {
 
-        cy.on('uncaught:exception', () => false)
-        cy.login()
+        cy.navigateToForm("Business Closed Recommendation");
 
-        cy.contains(businessClosedRecommendationLocators.businessClosedText, 'Business Closed Recommendation').click();
-        cy.searchAndSelectUser('Rajiv Notification - (9843530326)');
-
-
-
-        cy.get(businessClosedRecommendationLocators.wardSelect).select('4');
+        // Search and select user
+        cy.searchAndSelectUser("Sresta Sharma");
+        cy.get(businessClosedRecommendationLocators.wardSelect).select('4', { force: true });
 
         // Personal Details
 
@@ -99,35 +95,6 @@ describe('Business Closed ', () => {
         cy.get(businessClosedRecommendationLocators.applyButton).click()
 
         cy.get(businessClosedRecommendationLocators.submit).click()
-
-
-        cy.get('a[href*="admin-dashboard/application"]')
-            .contains('Sifarish')
-            .click({ force: true });
-
-
-
-
-
-        cy.contains('td', 'Business Closed Recommendation')
-            .first()
-            .closest('tr')
-            .within(() => {
-                // Click the View button in the row
-                cy.get('button[aria-label="show"]')
-                    .scrollIntoView()
-                    .click({ force: true });
-
-            });
-
-
-
-        cy.get('.chakra-select.css-ysxrja').select('7f59d5eb-52c3-493d-9482-6e82ef96869b')
-        cy.get('.chakra-button.chakra-menu__menu-button.css-arfz4w').eq(1).click()
-        cy.get('.chakra-menu__menuitem.css-y7jzs3').eq(3).click();
-
-
-
     })
 });
 

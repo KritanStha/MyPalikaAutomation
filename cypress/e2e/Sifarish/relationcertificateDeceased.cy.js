@@ -5,14 +5,9 @@ import { relationCertificateDeceasedUnique } from "../../fixtures/data/UData_Ver
 describe('Relation certificate Deceased', () => {
     it('Relation certificate Deceased', () => {
 
-        cy.on('uncaught:exception', () => false)
-        cy.login()
+        cy.navigateToForm('Relation Certificate with Deceased')
 
-        cy.contains('Relation Certificate with Deceased')
-            .scrollIntoView()
-            .click();
-
-        cy.searchAndSelectUser('Rajiv Notification - (9843530326)');
+        cy.searchAndSelectUser('Sresta Sharma');
         cy.get(relationCertificateDeceasedLocators.wardSelect).select('4');
 
         cy.get(relationCertificateDeceasedLocators.applicantFirstNameInput)
@@ -82,9 +77,5 @@ describe('Relation certificate Deceased', () => {
         // Click submit once after all dynamic rows have been filled
         cy.get(relationCertificateDeceasedLocators.applyButton).click()
         cy.get(relationCertificateDeceasedLocators.forSubmission).eq(0).click()
-
-        cy.get('a[href*="admin-dashboard/application"]')
-            .contains('Sifarish')
-            .click({ force: true });
     })
 })

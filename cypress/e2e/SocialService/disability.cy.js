@@ -26,7 +26,7 @@ describe("Disability Application", () => {
 
         // Search user - type name (form auto-populates)
         cy.get('input[placeholder="Search User"]').click();
-        cy.get('input[placeholder="Search User"]').type("rajiv");
+        cy.get('input[placeholder="Search User"]').type("Sresta Sharma");
 
 
         // ========== PERSONAL INFORMATION SECTION ==========
@@ -46,9 +46,7 @@ describe("Disability Application", () => {
         cy.get(DL.religion).select(data.personal.religion, { force: true });
 
         // Date of Birth (First Date Picker)
-        cy.get(DL.dateOfBirth).eq(0).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(10).click();
+        cy.selectNepaliDate(0, 1);
 
         cy.get(DL.telephoneNo).clear().type(data.personal.telephoneNo);
 
@@ -63,9 +61,7 @@ describe("Disability Application", () => {
                 cy.get(DL.birthCertificateIssueDistrict).select(data.personal.birthCertificateIssueDistrict, { force: true });
 
                 // Birth Certificate Issue Date (Second Date Picker)
-                cy.get(DL.birthCertificateIssueDate).eq(1).find('input').click();
-                cy.get('tbody').should('be.visible');
-                cy.get('td.month-day.current').eq(15).click();
+                cy.selectNepaliDate(1, 2);
             } else {
                 cy.log('Detected ADULT applicant - filling citizenship fields');
 
@@ -74,9 +70,7 @@ describe("Disability Application", () => {
                 cy.get(DL.citizenshipIssuedDistrict).select(data.personal.citizenshipIssuedDistrict, { force: true });
 
                 // Citizenship Issued Date (Second Date Picker)
-                cy.get(DL.citizenshipIssuedDate).eq(1).find('input').click();
-                cy.get('tbody').should('be.visible');
-                cy.get('td.month-day.current').eq(15).click();
+                cy.selectNepaliDate(1, 2);
             }
         });
 
@@ -87,13 +81,13 @@ describe("Disability Application", () => {
         cy.get(DL.mobileNo).clear().type(data.personal.mobileNo);
 
         // ========== PERMANENT ADDRESS SECTION ==========
-        // Targeting Permanent Address (Index 0)
-        cy.get('option:contains("Select province")').parent().eq(0).select(data.permanentAddress.province, { force: true });
-        cy.get('option:contains("Select district")').parent().eq(0).should("not.be.disabled").select(data.permanentAddress.district, { force: true });
+        // Targeting Permanent Address using generic locators with index 0
+        cy.get(DL.permanentProvince).eq(0).select(data.permanentAddress.province, { force: true });
+        cy.get(DL.permanentDistrict).eq(0).should("not.be.disabled").select(data.permanentAddress.district, { force: true });
 
-        cy.get('option:contains("Select municipality")').parent().eq(0).should("not.be.disabled").find('option').should('have.length.gt', 1);
+        cy.get(DL.permanentMunicipality).eq(0).should("not.be.disabled").find('option').should('have.length.gt', 1);
 
-        cy.get('option:contains("Select municipality")').parent().eq(0).then($select => {
+        cy.get(DL.permanentMunicipality).eq(0).then($select => {
             const options = $select.find('option');
             const matchingOption = [...options].find(opt =>
                 opt.text.includes('काठमाडौँ') || opt.text.includes('Kathmandu')
@@ -103,10 +97,10 @@ describe("Disability Application", () => {
             }
         });
 
-        // Select Ward - find by text since dropdown uses UUID values
-        cy.get('option:contains("Select ward no")').parent().eq(0).should("not.be.disabled");
-        cy.get('option:contains("Select ward no")').parent().eq(0).find('option').should('have.length.gt', 1);
-        cy.get('option:contains("Select ward no")').parent().eq(0).then($select => {
+        // Select Ward - find by text
+        cy.get(DL.permanentWard).eq(0).should("not.be.disabled");
+        cy.get(DL.permanentWard).eq(0).find('option').should('have.length.gt', 1);
+        cy.get(DL.permanentWard).eq(0).then($select => {
             const options = $select.find('option');
             const matchingOption = [...options].find(opt => opt.text.trim() === data.permanentAddress.ward);
             if (matchingOption) {
@@ -156,25 +150,22 @@ describe("Disability Application", () => {
             }
         });
 
-        // Patron Date of Birth (Third Date Picker)
-        cy.get(DL.patronDOB).eq(2).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(12).click();
+        // Patron Date of Birth (Third Date Picker - Index 2)
+        cy.selectNepaliDate(2, 3);
 
         cy.get(DL.patronCitizenshipNo).clear().type(data.patron.citizenshipNo);
         cy.get(DL.patronCitizenshipIssuedDistrict).select(data.patron.citizenshipIssuedDistrict, { force: true });
 
-        // Patron Citizenship Issued Date (Fourth Date Picker)
-        cy.get(DL.patronCitizenshipIssuedDate).eq(3).find('input').click();
-        cy.get('tbody').should('be.visible');
-        cy.get('td.month-day.current').eq(18).click();
+        // Patron Citizenship Issued Date (Fourth Date Picker - Index 3)
+        cy.selectNepaliDate(3, 3);
 
         cy.get(DL.patronContact).clear().type(data.patron.contact);
         cy.get(DL.patronOccupation).clear().type(data.patron.occupation);
         cy.get(DL.patronMonthlyIncome).clear().type(data.patron.monthlyIncome);
 
         // ========== DISABILITY DETAILS SECTION ==========
-        cy.get(DL.registrationDate).type(data.disability.registrationDate);
+        // Registration Date (5th Date Picker - Index 4)
+        cy.selectNepaliDate(4, 2);
         cy.get(DL.disabilityType).select(data.disability.disabilityType, { force: true });
 
         // Check if disability subtype field appears (conditional based on disability type)
@@ -229,13 +220,17 @@ describe("Disability Application", () => {
         cy.get(DL.receiverNameNp).clear().type(data.receiver.nameNp, { force: true });
         cy.get(DL.receiverMobileNumber).clear().type(data.receiver.mobileNumber);
         cy.get(DL.receiverRelationship).select(data.receiver.relationship, { force: true });
-        cy.get(DL.receivedDate).type(data.receiver.receivedDate);
+
+        // Received Date (6th Date Picker - Index 5)
+        cy.selectNepaliDate(5, 2);
 
         // ========== AUTHORITY DETAILS SECTION ==========
         cy.get(DL.authorityNameEn).clear().type(data.authority.nameEn);
         cy.get(DL.authorityNameNp).clear().type(data.authority.nameNp, { force: true });
         cy.get(DL.authorityMobileNumber).clear().type(data.authority.mobileNumber);
-        cy.get(DL.approvedDate).type(data.authority.approvedDate);
+
+        // Approved Date (7th Date Picker - Index 6)
+        cy.selectNepaliDate(6, 2);
         cy.get(DL.authorityDesignation).clear().type(data.authority.designation);
         cy.get(DL.officeAddress).clear().type(data.authority.officeAddress);
 

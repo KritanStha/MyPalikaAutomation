@@ -14,7 +14,7 @@ describe("Business Not Being Operated", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(BNBO.applicantSection).should("be.visible");
+        cy.contains(BNBO.applicantSection).scrollIntoView().should("be.visible");
         cy.get(BNBO.firstName).clear().type(data.applicant.firstName);
         cy.get(BNBO.middleName).clear();
         cy.get(BNBO.lastName).clear().type(data.applicant.lastName);
@@ -32,11 +32,8 @@ describe("Business Not Being Operated", () => {
         // Fill Permanent Address
         cy.contains(BNBO.permanentAddressSection).should("be.visible");
         cy.get("select").eq(2).select(data.permanentAddress.province, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(3).should("not.be.disabled").select(data.permanentAddress.district, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(4).should("not.be.disabled").select(data.permanentAddress.localLevel, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(5).should("not.be.disabled").select(data.permanentAddress.ward, { force: true });
         cy.get(BNBO.tole).eq(0).clear().type(data.permanentAddress.tole);
 
@@ -58,11 +55,8 @@ describe("Business Not Being Operated", () => {
         // Fill Business Address
         cy.contains(BNBO.businessAddressSection).should("be.visible");
         cy.get("select").eq(6).select(data.businessAddress.province, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(7).should("not.be.disabled").select(data.businessAddress.district, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(8).should("not.be.disabled").select(data.businessAddress.localLevel, { force: true });
-        cy.wait(1500);
         cy.get("select").eq(9).should("not.be.disabled").select(data.businessAddress.ward, { force: true });
         cy.get(BNBO.tole).eq(1).clear().type(data.businessAddress.tole);
 

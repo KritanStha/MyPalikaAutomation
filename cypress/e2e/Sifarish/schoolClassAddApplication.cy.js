@@ -14,7 +14,7 @@ describe("School Class Add Application", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(SCAA.applicantSection).should("be.visible");
+        cy.contains(SCAA.applicantSection).scrollIntoView().should("be.visible");
         cy.get(SCAA.firstName).clear().type(data.applicant.firstName);
         cy.get(SCAA.middleName).clear();
         cy.get(SCAA.lastName).clear().type(data.applicant.lastName);

@@ -11,10 +11,9 @@ describe("Different Date Of Birth Application", () => {
 
     // Select ward
     cy.get(DDA.wardSelect).eq(0).select(data.ward, { force: true });
-    cy.wait(1000);
 
     // Fill Applicant Personal Details
-    cy.contains(DDA.applicantSection).should("be.visible");
+    cy.contains(DDA.applicantSection).scrollIntoView().should("be.visible");
     cy.get(DDA.firstNameInput).clear().type(data.applicant.firstName);
     cy.get(DDA.middleNameInput).clear().type(data.applicant.middleName);
     cy.get(DDA.lastNameInput).clear().type(data.applicant.lastName);
@@ -30,11 +29,8 @@ describe("Different Date Of Birth Application", () => {
     // Fill Permanent Address
     cy.contains(DDA.permanentAddressSection).should("be.visible");
     cy.get("select").eq(3).select(data.address.province, { force: true });
-    cy.wait(1500);
     cy.get("select").eq(4).should("not.be.disabled").select(data.address.district, { force: true });
-    cy.wait(1500);
     cy.get("select").eq(5).should("not.be.disabled").select(1, { force: true });
-    cy.wait(1500);
     cy.get("select").eq(6).should("not.be.disabled").select(1, { force: true });
     cy.get(DDA.toleInput).clear().type(data.address.tole);
 

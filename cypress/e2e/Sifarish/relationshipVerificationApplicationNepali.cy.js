@@ -14,7 +14,7 @@ describe("Relationship Verification Application Nepali", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(RVAN.applicantSection).should("be.visible");
+        cy.contains(RVAN.applicantSection).scrollIntoView().should("be.visible");
         cy.get(RVAN.firstName).clear().type(data.applicant.firstName);
         cy.get(RVAN.middleName).clear();
         cy.get(RVAN.lastName).clear().type(data.applicant.lastName);

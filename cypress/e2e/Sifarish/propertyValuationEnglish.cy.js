@@ -14,7 +14,7 @@ describe("Property valuation(English)", () => {
         cy.wait(1000);
 
         // Fill Applicant Personal Details
-        cy.contains(PVE.applicantSection).should("be.visible");
+        cy.contains(PVE.applicantSection).scrollIntoView().should("be.visible");
 
         // Select Application Date (First Date Picker)
         cy.selectNepaliDate(0, 10);

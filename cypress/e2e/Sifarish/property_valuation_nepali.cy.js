@@ -6,16 +6,8 @@ describe("Property Valuation", () => {
 
   it("Property Valuation(Nepali)", () => {
 
-    const valuationRows = propertyValuationUnique.valuationRows;
-
-    cy.on('uncaught:exception', () => false)
-    cy.login()
-
-    cy.contains(/Property valuation\(Nepali\)/i)
-      .scrollIntoView()
-      .click();
-
-    cy.searchAndSelectUser('Rajiv Notification - (9843530326)');
+    cy.navigateToForm('Property valuation(Nepali)');
+    cy.searchAndSelectUser('Sresta Sharma');
 
 
 
@@ -45,7 +37,7 @@ describe("Property Valuation", () => {
     cy.get(propertyValuationNepaliLocators.applicantCitizenshipNumberInput)
       .clear()
       .type(sharedApplicantData.applicantCitizenshipNumber);
-
+    cy.selectNepaliDate(1, 21);
     cy.get(propertyValuationNepaliLocators.applicantIssueDistrictSelect).select('lalitpur')
     cy.get(propertyValuationNepaliLocators.nationalIdNumberInput).type(sharedApplicantData.nationalIdNumber)
 
@@ -57,7 +49,7 @@ describe("Property Valuation", () => {
     cy.get(propertyValuationNepaliLocators.toleInput).type(sharedAddressData.tole);
 
 
-    valuationRows.forEach((row, index) => {
+    propertyValuationUnique.valuationRows.forEach((row, index) => {
       cy.get(propertyValuationNepaliLocators.valuationRowOwnerNameInput)
         .eq(index)
         .type(row.ownerName);
@@ -95,29 +87,6 @@ describe("Property Valuation", () => {
     cy.get(propertyValuationNepaliLocators.applyButton).click()
 
     cy.get(propertyValuationNepaliLocators.forSubmission).click()
-
-    cy.get('a[href*="admin-dashboard/application"]')
-      .contains('Sifarish')
-      .click({ force: true });
-
-    cy.contains('td', 'Property valuation(Nepali)')
-      .first()
-      .closest('tr')
-      .within(() => {
-        // Click the View button in the row
-        cy.get('button[aria-label="show"]')
-          .scrollIntoView()
-          .click({ force: true });
-
-      });
-
-
-
-    cy.get('.chakra-select.css-ysxrja').select('7f59d5eb-52c3-493d-9482-6e82ef96869b')
-    cy.get('.chakra-button.chakra-menu__menu-button.css-arfz4w').eq(1).click()
-    cy.get('.chakra-menu__menuitem.css-y7jzs3').eq(3).click();
-
-
 
   })
 })

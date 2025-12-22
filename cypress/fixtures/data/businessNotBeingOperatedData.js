@@ -5,7 +5,7 @@ const firstNameNp = fakerNepali.person.firstName();
 const lastNameNp = fakerNepali.person.lastName();
 
 const businessNotBeingOperatedData = {
-    userSearch: "Rajiv Sapkota",
+    userSearch: "Sresta Sharma",
     ward: "10",
 
     // Applicant Personal Details
@@ -29,13 +29,13 @@ const businessNotBeingOperatedData = {
 
     // Business Details
     business: {
-        regNumber: "१२३४५/०७५/०७६",
+        regNumber: "12345/075/076",
         name: `${firstNameNp} स्टोर्स`,
         type: "किराना पसल", // Grocery Store
         proprietorName: `${firstNameNp} ${lastNameNp}`,
         landlordName: fakerNepali.person.fullName('MALE'),
         phoneNumber: fakerNepali.contact.mobileNo(),
-        panNumber: "६०१२३४५६७",
+        panNumber: "601234567",
         reason: "आर्थिक मन्दीको कारणले" // Due to economic recession
     },
 
@@ -51,7 +51,7 @@ const businessNotBeingOperatedData = {
     // Other Agency Registration
     otherAgency: {
         bodyName: "घरेलु तथा साना उद्योग कार्यालय",
-        regNumber: "९८७६५"
+        regNumber: "98765"
     },
 
     // Recommending Office

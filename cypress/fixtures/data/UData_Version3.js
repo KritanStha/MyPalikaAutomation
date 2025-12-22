@@ -4,7 +4,7 @@
 // This file contains ONLY unique, non-shared, special-case values
 // for specific form features for ALL forms provided (comments: each form)
 
-import { sharedAddressData , sharedApplicantData, sharedFamilyData, sharedBusinessData, sharedSchoolData, sharedDocuments } from "./SData_Version3";
+import { sharedAddressData, sharedApplicantData, sharedFamilyData, sharedDocuments } from "./SData_Version3";
 // ---- BIRTH DATE VERIFICATION ----
 export const birthDateVerificationUnique = {
   ...sharedApplicantData,
@@ -42,33 +42,7 @@ export const propertyValuationUnique = {
   landOwnershipCertificatePath: sharedDocuments.landOwnershipCertificatePath
 };
 
-// ---- BUSINESS NOT BEING OPERATED (unique business features) ----
-export const businessNotBeingOperatedUnique = {
-  businessRegistrationNo: "REG/2077/12345",
-  businessName: "राम जनरल स्टोर",
-  proprietorName: "राम प्रसाद कोइराला",
-  landlordName: "भीम बहादुर श्रेष्ठ",
-  phoneNumber: "9801234567",
-  panNumber: "PAN1234567890",
-  businessClosedFromDate: "२०७८-१०-१५",
-  reasonNotOperating: "व्यवसायको आर्थिक घाटा",
-  registeredBodyName: "नेपाल उद्योग वाणिज्य संघ",
-  registeredNumber: "NCC/123456",
-  registeredDate: "२०७६-०६-२०",
-  companyRegCertificatePath: sharedDocuments.companyRegCertificatePath,
-  renewalCertificatePath: sharedDocuments.renewalCertificatePath,
-  fieldVerificationReportPath: sharedDocuments.fieldVerificationReportPath,
-  bOfficeName:"काठमाडौँ महानगरपालिका करदाताको कार्यालय",
-  bOfficeAddress: "रुपेश मार्ग"
-  
-};
 
-// ---- FUNDAMENTAL SCHOOL OPEN RECOMMENDATION ----
-export const schoolOpenRecommendationUnique = {
-  ...sharedSchoolData,
-  dateOfDecision: "२०७९-१२-२५",
-  meetingMinutesPath: sharedDocuments.meetingMinutesPath
-};
 
 // ---- SCHOOL CLASS ADD APPLICATION ----
 export const schoolClassAddUnique = {
@@ -79,18 +53,6 @@ export const schoolClassAddUnique = {
   schoolCollegeDetailsPath: "fixtures/files/schoolCollegeDetails.pdf"
 };
 
-// ---- RENTAL TAX ACCOUNTING ----
-export const rentalTaxAccountingUnique = {
-  usage: "वाणिज्य",
-  contractDate: "२०७८-०५-०१",
-  rentalYear: "२०७८",
-  rentalMonth: "५",
-  fromDate: "२०७८-०५-०१",
-  toDate: "२०७९-०५-०१",
-  taxPercentage: "१०",
-  taxAmount: "५०००",
-  rentAgreementPath: "fixtures/files/rentAgreement.pdf"
-};
 
 // ---- RELATION CERTIFICATE WITH DECEASED ----
 export const relationCertificateDeceasedUnique = {
@@ -111,22 +73,6 @@ export const relationCertificateDeceasedUnique = {
   ]
 };
 
-// ---- RELATIONSHIP VERIFICATION (Nepali/English) ----
-export const relationshipVerificationUnique = {
-  purpose: "नाता सम्बन्ध प्रमाणित गर्न",
-  declarationFamilyPath: "fixtures/files/declarationFamily.pdf",
-  clearancePolicePath: "fixtures/files/clearancePolice.pdf",
-  relationRows: [
-    {
-      personName: "अनिता कोइराला",
-      relation: "छोरी"
-    },
-    {
-      personName: "सुदीप कोइराला",
-      relation: "छोरा"
-    }
-  ]
-};
 
 // ---- STRONG ECONOMIC STATUS VERIFICATION ----
 export const strongEconomicStatusUnique = {
@@ -137,15 +83,4 @@ export const strongEconomicStatusUnique = {
   officeAddress: "रुपेश मार्ग, काठमाडौं",
   propertyTaxReceiptPath: "fixtures/files/propertyTaxReceipt.pdf",
   recommendationFromWardPath: "fixtures/files/recommendationWard.pdf"
-};
-
-// ---- WEAK ECONOMIC STATUS VERIFICATION ----
-export const weakEconomicStatusUnique = {
-  applicantGender: "महिला",
-  applicantDateOfBirth: "२०५८-०२-१५",
-  applicantContactNumber: "9845123478",
-  officeName: "बाल विकास कार्यालय",
-  officeAddress: "ललितपुर",
-  propertyTaxReceiptPath: "fixtures/files/propertyTaxReceiptWeak.pdf",
-  recommendationFromWardPath: "fixtures/files/recommendationWardWeak.pdf"
 };

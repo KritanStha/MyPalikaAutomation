@@ -6,7 +6,7 @@ const lastNameNp = fakerNepali.person.lastName();
 const middleNameNp = fakerNepali.person.middleName();
 
 const differentDobData = {
-    userSearch: "Rajiv Sapkota",
+    userSearch: "Sresta Sharma",
     ward: "10",
     applicant: {
         firstName: firstNameNp,

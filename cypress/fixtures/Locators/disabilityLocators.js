@@ -35,19 +35,19 @@ const disabilityLocators = {
     monthlySalary: '[name="monthlySalary"]',
     mobileNo: '[name="mobileNo"]',
 
-    // Address Section - target by index in test file since attributes are not unique
+    // Address Section
     // Permanent Address (1st set)
-    permanentProvince: 'select',
-    permanentDistrict: 'select',
-    permanentMunicipality: 'select',
-    permanentWard: 'select',
+    permanentProvince: 'select:has(option:contains("Select province"))',
+    permanentDistrict: 'select:has(option:contains("Select district"))',
+    permanentMunicipality: 'select:has(option:contains("Select municipality"))',
+    permanentWard: 'select:has(option:contains("Select ward no"))',
     permanentAddressCheckbox: '[name="isPermanentAddressCurrentAddress"]',
 
     // Temporary Address (2nd set)
-    temporaryProvince: 'select',
-    temporaryDistrict: 'select',
-    temporaryMunicipality: 'select',
-    temporaryWard: 'select',
+    temporaryProvince: 'select:has(option:contains("Select province"))',
+    temporaryDistrict: 'select:has(option:contains("Select district"))',
+    temporaryMunicipality: 'select:has(option:contains("Select municipality"))',
+    temporaryWard: 'select:has(option:contains("Select ward no"))',
 
     // Patron Details Section
     patronFirstNameEn: '[name="patron.firstName.en"]',

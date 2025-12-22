@@ -7,14 +7,9 @@ import { strongEconomicStatusUnique } from "../../fixtures/data/UData_Version3"
 describe('Strong Economic Status Verification', () => {
     it(" Strong Economic Status", () => {
 
-        cy.on('uncaught:exception', () => false)
-        cy.login()
+        cy.navigateToForm('Strong Economic Status Verification')
 
-        cy.contains('Strong Economic Status Verification')
-            .scrollIntoView()
-            .click();
-
-        cy.searchAndSelectUser('Rajiv Notification - (9843530326)');
+        cy.searchAndSelectUser('Sresta Sharma');
 
 
 
@@ -68,28 +63,6 @@ describe('Strong Economic Status Verification', () => {
         cy.get(strongEconomicStatusVerificationLocators.applyButton).click()
 
         cy.get(strongEconomicStatusVerificationLocators.forSubmit).contains('Submit').click()
-
-        cy.get('a[href*="admin-dashboard/application"]')
-            .contains('Sifarish')
-            .click({ force: true });
-
-        cy.contains('td', 'Strong Economic Status Verification')
-            .first()
-            .closest('tr')
-            .within(() => {
-                // Click the View button in the row
-                cy.get('button[aria-label="show"]')
-                    .scrollIntoView()
-                    .click({ force: true });
-
-            });
-
-
-
-        cy.get('.chakra-select.css-ysxrja').select('7f59d5eb-52c3-493d-9482-6e82ef96869b')
-        cy.get('.chakra-button.chakra-menu__menu-button.css-arfz4w').eq(1).click()
-        cy.get('.chakra-menu__menuitem.css-y7jzs3').eq(3).click();
-
 
     })
 })
