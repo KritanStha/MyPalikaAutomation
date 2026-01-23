@@ -55,7 +55,7 @@ jobs:
           retention-days: 30
 
       - name: 📧 Send Report via Email
-        if: always()
+        if: false
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
